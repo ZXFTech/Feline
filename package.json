@@ -4,7 +4,8 @@
   "description": "feline 博客",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/ZXFTech/Feline/issues"
   },
-  "homepage": "https://github.com/ZXFTech/Feline#readme"
+  "homepage": "https://github.com/ZXFTech/Feline#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "commitizen": "^4.2.5"
+  }
 }
