@@ -22,11 +22,12 @@
   "homepage": "https://github.com/ZXFTech/Feline#readme",
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "husky": "^8.0.1"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   },
   "dependencies": {
