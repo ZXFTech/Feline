@@ -1,0 +1,84 @@
+/* Neumorphism configs */
+.test-container {
+  padding: 20px;
+  width: 100%;
+  height: 1000px;
+  text-align: center;
+  background: rgb(51, 51, 51);
+}
+
+.standardSize {
+  display: inline-block;
+  padding: 10px;
+  overflow: hidden;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  max-height: 200px;
+  box-sizing: border-box;
+}
+.standardSize > div {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.standardSize > div > * {
+  height: 100%;
+  width: 100%;
+}
+.standardSize:hover {
+  padding: 12px;
+}
+
+.flat-surface-container {
+  background: rgb(51, 51, 51);
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+.flat-surface-container:hover {
+  background: rgb(51, 51, 51);
+  box-shadow: inset 10px 10px 10px #141414, inset -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+
+.sunken-container {
+  background: rgb(51, 51, 51);
+  box-shadow: inset 10px 10px 10px #141414, inset -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+
+.protuberant-surface-container {
+  background: #222 linear-gradient(145deg, rgba(51, 51, 51, 0), rgb(51, 51, 51));
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+.protuberant-surface-container:hover {
+  background: #444 linear-gradient(145deg, rgb(51, 51, 51), rgba(51, 51, 51, 0));
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+
+.sunken-surface-container {
+  background: #444 linear-gradient(145deg, rgb(51, 51, 51), rgba(51, 51, 51, 0));
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  border-radius: 10%;
+}
+
+.animate1 {
+  background: rgb(51, 51, 51);
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  border-radius: 10%;
+  transition: all 0.4s;
+}
+.animate1:hover {
+  box-shadow: none;
+}
+
+.animate2 {
+  border-radius: 20px;
+  background: #444 linear-gradient(145deg, rgba(51, 51, 51, 0), rgb(41, 41, 41));
+  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
+  transition: all 0.4s;
+}
+.animate2:hover {
+  background: #222 linear-gradient(145deg, rgba(51, 51, 51, 0), rgb(41, 41, 41));
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,26 @@
+@import "./styles/global.scss";
+@import "./styles/variables.scss";
+
+.content-area {
+  background: $neu-main-them-color;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 100px;
+  bottom: 100px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.left-func-zone,
+.right-func-zone {
+  @include sunken-container;
+  margin: 12px;
+  flex-grow: 0;
+  width: 500px;
+}
+
+.main-display-zone {
+  flex-grow: 1;
+  flex-basis: 1000px;
+}
