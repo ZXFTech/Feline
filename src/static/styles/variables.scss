@@ -1,0 +1,75 @@
+/* Neumorphism configs */
+
+$neu-main-them-color-value: 51;
+$neu-main-them-color: rgba(
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  1
+);
+$neu-light-color: #525252;
+$neu-dark-color: #141414;
+$neu-linear-light-color: rgba(
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  0
+);
+$neu-linear-dark-color: #1e1e1e;
+$neu-linear-dark-color: rgba(
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  $neu-main-them-color-value,
+  1
+);
+$neu-linear-degree: 145deg;
+
+$neu-distance: 8px;
+$neu-blur: 8px;
+
+$neu-radio: 10px;
+
+$neu-flat-surface-color: $neu-main-them-color;
+$neu-sunken-surface-color: #444
+  linear-gradient(
+    $neu-linear-degree,
+    $neu-linear-dark-color,
+    $neu-linear-light-color
+  );
+$neu-protuberant-surface-color: #222
+  linear-gradient(
+    $neu-linear-degree,
+    $neu-linear-light-color,
+    $neu-linear-dark-color
+  );
+
+$neu-protuberant-container: $neu-blur $neu-blur $neu-blur $neu-dark-color,
+  0-$neu-blur 0-$neu-blur $neu-blur $neu-light-color;
+
+$neu-sunken-container: inset $neu-blur $neu-blur $neu-blur $neu-dark-color,
+  inset 0-$neu-blur 0-$neu-blur $neu-blur $neu-light-color;
+
+@mixin sunken-container {
+  background: $neu-main-them-color;
+  box-shadow: $neu-sunken-container;
+  border-radius: $neu-radio;
+}
+
+@mixin sunken-surface-container {
+  background: $neu-sunken-surface-color;
+  box-shadow: $neu-protuberant-container;
+  border-radius: $neu-radio;
+}
+
+@mixin protuberant-surface-container {
+  background: $neu-protuberant-surface-color;
+  // background: radial-gradient($neu-linear-light-color, $neu-linear-dark-color);
+  box-shadow: $neu-protuberant-container;
+  border-radius: $neu-radio;
+}
+
+@mixin flat-surface-container {
+  background: $neu-main-them-color;
+  box-shadow: $neu-protuberant-container;
+  border-radius: $neu-radio;
+}

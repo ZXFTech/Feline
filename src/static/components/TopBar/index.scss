@@ -1,0 +1,21 @@
+@import "../../styles/global.scss";
+
+.top-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #333;
+  padding: 10px;
+  box-sizing: border-box;
+
+  & .top-bar-assert-part {
+    overflow: hidden;
+    @include flat-surface-container;
+
+    & .top-bar-assert-container {
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+}
