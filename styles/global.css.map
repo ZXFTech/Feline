@@ -1,1 +1,7 @@
-{"version":3,"sources":["variables.scss","global.scss","global.css"],"names":[],"mappings":"AAAA,wBAAA;ACEA;;EAEE,SAAA;EACA,UAAA;EACA,2BDHoB;AEGtB","file":"global.css"}
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;ACEzB;IACK;EACH,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EDyBa,OAAoB",
+"sources": ["variables.scss","global.scss"],
+"names": [],
+"file": "global.css"
+}
