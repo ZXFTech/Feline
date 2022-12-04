@@ -3,8 +3,8 @@ import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import TopBar from "./components/TopBar";
-import NeuContainer from "./components/NeuTest";
+import TopBar from "./src/components/TopBar";
+import NeuContainer from "./src/components/NeuTest";
 
 function App() {
   return (
