@@ -5,23 +5,41 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 import TopBar from "./src/components/TopBar";
 import NeuContainer from "./src/components/NeuTest";
-import Counter from "@/page/ReduxTest";
+import Constructing from "@/components/Constructing";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <></>,
+    element: <>index</>,
   },
   {
-    path: "/post/:postId",
+    path: "/1",
+    element: <>1</>,
   },
   {
-    path: "/editPost/:postId",
+    path: "/2",
+    element: <>2</>,
+  },
+  {
+    path: "/3",
+    element: <>3</>,
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div className="main-container">
+      <div className="left-bar">
+        <Constructing />
+      </div>
+      <div className="right-bar">
+        <Constructing />
+      </div>
+      <div className="content-bar">
+        <RouterProvider router={router} />
+      </div>
+    </div>
+  );
 }
 
 export default App;

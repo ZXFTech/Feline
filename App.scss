@@ -1,26 +1,47 @@
 @import "./styles/global.scss";
 @import "./styles/variables.scss";
 
-.content-area {
-  background: $neu-main-them-color;
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  top: 100px;
-  bottom: 100px;
-  width: 100vw;
-  box-sizing: border-box;
+.main-container {
+  position: relative;
+  height: 100vh;
 }
 
-.left-func-zone,
-.right-func-zone {
-  @include sunken-container;
-  margin: 12px;
-  flex-grow: 0;
+.left-bar,
+.right-bar {
+  // @include sunken-container;
   width: 500px;
 }
 
-.main-display-zone {
-  flex-grow: 1;
-  flex-basis: 1000px;
+.left-bar {
+  float: left;
+}
+
+.right-bar {
+  float: right;
+}
+
+.content-bar {
+  margin-left: 500px;
+  margin-right: 500px;
+
+  background-color: white;
+}
+
+@media screen and (max-width: 1300px) {
+  .left-bar,
+  .right-bar {
+    display: none;
+  }
+  .content-bar {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 2000px) {
+  .right-bar {
+    display: none;
+  }
+  .content-bar {
+    margin-right: 0;
+  }
 }
