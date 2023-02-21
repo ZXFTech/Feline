@@ -12,6 +12,7 @@ body {
 
 .left-bar,
 .right-bar {
+  box-sizing: border-box;
   width: 500px; }
 
 .left-bar {
@@ -22,8 +23,7 @@ body {
 
 .content-bar {
   margin-left: 500px;
-  margin-right: 500px;
-  background-color: white; }
+  margin-right: 500px; }
 
 @media screen and (max-width: 1300px) {
   .left-bar,
@@ -39,4 +39,4 @@ body {
   .content-bar {
     margin-right: 0; } }
 
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=App.css.map */
