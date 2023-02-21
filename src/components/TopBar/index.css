@@ -8,10 +8,7 @@
   padding: 10px;
   box-sizing: border-box; }
   .top-bar-container .top-bar-assert-part {
-    overflow: hidden;
-    background: #333333;
-    box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
-    border-radius: 10px; }
+    overflow: hidden; }
     .top-bar-container .top-bar-assert-part .top-bar-assert-container {
       padding: 5px;
       border-radius: 5px; }
