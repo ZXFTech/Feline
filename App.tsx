@@ -4,8 +4,9 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 import TopBar from "./src/components/TopBar";
-import NeuContainer from "./src/components/NeuTest";
+import NeuContainer from "@/components/NeuContainer";
 import Constructing from "@/components/Constructing";
+import NeuTest from "./src/components/NeuTest";
 
 const router = createBrowserRouter([
   {
@@ -30,13 +31,19 @@ function App() {
   return (
     <div className="main-container">
       <div className="left-bar">
-        <Constructing />
+        <NeuContainer type="protuberant">
+          <Constructing />
+        </NeuContainer>
       </div>
       <div className="right-bar">
-        <Constructing />
+        <NeuContainer type="sunken">
+          <Constructing />
+        </NeuContainer>
       </div>
       <div className="content-bar">
-        <RouterProvider router={router} />
+        <NeuContainer type="protuberant">
+          <RouterProvider router={router} />
+        </NeuContainer>
       </div>
     </div>
   );
