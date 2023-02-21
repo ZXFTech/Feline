@@ -2,70 +2,112 @@
 .test-container {
   padding: 20px;
   width: 100%;
-  height: 1000px;
   text-align: center;
-  background: #333333; }
-
-.standardSize {
-  display: inline-block;
-  padding: 10px;
-  overflow: hidden;
-  margin: 10px;
-  width: 200px;
-  height: 200px;
-  max-height: 200px;
-  box-sizing: border-box; }
-  .standardSize > div {
+  background: #333333;
+  color: white; }
+  .test-container > div {
     overflow: hidden;
-    border-radius: 20px; }
-    .standardSize > div > * {
-      height: 100%;
-      width: 100%; }
-  .standardSize:hover {
-    padding: 12px; }
+    display: inline-block;
+    margin: 10px;
+    width: 30%;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px black solid; }
+    .test-container > div > div {
+      overflow: hidden;
+      margin-bottom: 8px; }
 
-.flat-surface-container {
+.protuberant-container {
   background: #333333;
   box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
-  border-radius: 10px; }
-  .flat-surface-container:hover {
-    background: #333333;
-    box-shadow: inset 8px 8px 8px #141414, inset -8px -8px 8px #525252;
-    border-radius: 10px; }
+  border-radius: 10px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  margin: 10px; }
 
 .sunken-container {
   background: #333333;
   box-shadow: inset 8px 8px 8px #141414, inset -8px -8px 8px #525252;
-  border-radius: 10px; }
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin: 10px; }
 
-.protuberant-surface-container {
-  background: #222 linear-gradient(145deg, rgba(51, 51, 51, 0), #333333);
-  box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
-  border-radius: 10px; }
-  .protuberant-surface-container:hover {
-    background: #444 linear-gradient(145deg, #333333, rgba(51, 51, 51, 0));
-    box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
-    border-radius: 10px; }
+.common-container {
+  background: #333333;
+  box-shadow: none;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  margin: 10px; }
 
-.sunken-surface-container {
-  background: #444 linear-gradient(145deg, #333333, rgba(51, 51, 51, 0));
-  box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
-  border-radius: 10px; }
-
-.animate1 {
+.hover-protuberant:hover {
   background: #333333;
   box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
   border-radius: 10px;
-  transition: all 0.4s; }
-  .animate1:hover {
-    box-shadow: none; }
+  padding-top: 6px;
+  padding-bottom: 4px;
+  margin: 10px; }
 
-.animate2 {
-  border-radius: 20px;
-  background: #444 linear-gradient(145deg, rgba(51, 51, 51, 0), #292929);
-  box-shadow: 10px 10px 10px #141414, -10px -10px 10px #525252;
-  transition: all 0.4s; }
-  .animate2:hover {
-    background: #222 linear-gradient(145deg, rgba(51, 51, 51, 0), #292929); }
+.hover-sunken:hover {
+  background: #333333;
+  box-shadow: inset 8px 8px 8px #141414, inset -8px -8px 8px #525252;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin: 10px; }
+
+.hover-common:hover {
+  background: #333333;
+  box-shadow: none;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  margin: 10px; }
+
+.hover-depress:hover {
+  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
+  border-radius: 10px;
+  margin: 10px; }
+
+.hover-pop:hover {
+  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+  border-radius: 10px;
+  margin: 10px; }
+
+.hover-flat:hover {
+  background: #333333;
+  border-radius: 10px;
+  margin: 10px; }
+
+.convex {
+  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+  border-radius: 10px;
+  margin: 10px; }
+
+.flat {
+  background: #333333;
+  border-radius: 10px;
+  margin: 10px; }
+
+.concave {
+  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
+  border-radius: 10px;
+  margin: 10px; }
+
+.hover-convex:hover {
+  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+  border-radius: 10px;
+  margin: 10px; }
+
+.hover-flat:hover {
+  background: #333333;
+  border-radius: 10px;
+  margin: 10px; }
+
+.hover-concave:hover {
+  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
+  border-radius: 10px;
+  margin: 10px; }
 
 /*# sourceMappingURL=index.css.map */
