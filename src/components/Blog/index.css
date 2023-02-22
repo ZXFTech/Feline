@@ -1,0 +1,24 @@
+.blog-title {
+  text-align: center;
+  letter-spacing: 5px;
+  margin: 0px; }
+
+.blog-tags {
+  text-align: center; }
+
+.blog-info {
+  font-size: 12px;
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .blog-info > div {
+    margin-right: 12px; }
+
+.blog-content {
+  padding: 0 12px;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 2px; }
+
+/*# sourceMappingURL=index.css.map */
