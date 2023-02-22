@@ -8,6 +8,10 @@ $neu-main-them-color: rgba(
   $neu-main-them-color-value,
   1
 );
+// 字体颜色
+$neu-main-font-color: rgba(255, 255, 255, 1);
+$neu-error-font-color: rgba(255, 0, 0, 1);
+
 // 亮色
 $neu-light-color: #525252;
 // 暗色
@@ -15,6 +19,14 @@ $neu-dark-color: #141414;
 // 阴影亮色
 $neu-linear-light-color: rgba(255, 255, 255, 0.2);
 $neu-linear-dark-color: rgba(0, 0, 0, 0.3);
+// 边框亮色
+$neu-border-light-color: rgba(255, 255, 255, 0.5);
+// 边框暗色
+$neu-border-dark-color: rgba(0, 0, 0, 0.5);
+// 亮色边框
+$neu-light-border: 1px $neu-border-light-color solid;
+// 暗色边框
+$neu-dark-border: 1px $neu-border-dark-color solid;
 
 // 渐变角度
 $neu-linear-degree: 145deg;
