@@ -1,0 +1,30 @@
+$neu-padding-left: 12px;
+
+.blog-title {
+  text-align: center;
+  letter-spacing: 5px;
+  margin: 0px;
+}
+
+.blog-tags {
+  text-align: center;
+}
+
+.blog-info {
+  font-size: 12px;
+  margin: $neu-padding-left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > div {
+    margin-right: $neu-padding-left;
+  }
+}
+
+.blog-content {
+  padding: 0 12px;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
