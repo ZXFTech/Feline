@@ -26,7 +26,7 @@
   margin-right: 500px;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
   .left-bar,
   .right-bar {
     display: none;
@@ -36,7 +36,7 @@
   }
 }
 
-@media screen and (min-width: 1300px) and (max-width: 2000px) {
+@media screen and (min-width: 1000px) and (max-width: 2000x) {
   .right-bar {
     display: none;
   }
