@@ -8,7 +8,6 @@
   .test-container > div {
     overflow: hidden;
     display: inline-block;
-    margin: 10px;
     width: 30%;
     height: 200px;
     box-sizing: border-box;
@@ -21,93 +20,84 @@
   background: #333333;
   box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
   border-radius: 10px;
-  padding-top: 6px;
-  padding-bottom: 4px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 6px;
+  margin-bottom: 14px; }
 
 .sunken-container {
   background: #333333;
   box-shadow: inset 8px 8px 8px #141414, inset -8px -8px 8px #525252;
   border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 14px;
+  margin-bottom: 6px; }
 
 .common-container {
   background: #333333;
   box-shadow: none;
   border-radius: 10px;
-  padding-top: 8px;
-  padding-bottom: 2px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 .hover-protuberant:hover {
   background: #333333;
   box-shadow: 8px 8px 8px #141414, -8px -8px 8px #525252;
   border-radius: 10px;
-  padding-top: 6px;
-  padding-bottom: 4px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 6px;
+  margin-bottom: 14px; }
 
 .hover-sunken:hover {
   background: #333333;
   box-shadow: inset 8px 8px 8px #141414, inset -8px -8px 8px #525252;
   border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 14px;
+  margin-bottom: 6px; }
 
 .hover-common:hover {
   background: #333333;
   box-shadow: none;
   border-radius: 10px;
-  padding-top: 8px;
-  padding-bottom: 2px;
-  margin: 10px; }
+  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 .hover-depress:hover {
-  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(168, 168, 168, 0.2)); }
 
 .hover-pop:hover {
-  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(168, 168, 168, 0.2), rgba(0, 0, 0, 0.3)); }
 
 .hover-flat:hover {
-  background: #333333;
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333; }
 
 .convex {
-  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(168, 168, 168, 0.2), rgba(0, 0, 0, 0.3)); }
 
 .flat {
-  background: #333333;
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333; }
 
 .concave {
-  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(168, 168, 168, 0.2)); }
 
 .hover-convex:hover {
-  background: #333333 linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(168, 168, 168, 0.2), rgba(0, 0, 0, 0.3)); }
 
 .hover-flat:hover {
-  background: #333333;
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333; }
 
 .hover-concave:hover {
-  background: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2));
-  border-radius: 10px;
-  margin: 10px; }
+  margin: 10px;
+  margin: #333333 linear-gradient(145deg, rgba(0, 0, 0, 0.3), rgba(168, 168, 168, 0.2)); }
 
 /*# sourceMappingURL=index.css.map */
