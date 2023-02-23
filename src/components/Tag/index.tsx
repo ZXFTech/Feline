@@ -11,9 +11,8 @@ interface Props {
 const Tag = ({ children, color }: Props) => {
   return (
     <NeuContainer
-      type="common"
-      hover="protuberant"
-      style={{ color: color, cursor: "pointer" }}
+      type="protuberant"
+      style={{ color: color, cursor: "pointer", border: "none" }}
       className="tag"
     >
       <span>{children}</span>
