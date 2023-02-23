@@ -17,7 +17,7 @@ $neu-light-color: #525252;
 // 暗色
 $neu-dark-color: #141414;
 // 阴影亮色
-$neu-linear-light-color: rgba(255, 255, 255, 0.2);
+$neu-linear-light-color: rgba(168, 168, 168, 0.2);
 $neu-linear-dark-color: rgba(0, 0, 0, 0.3);
 // 边框亮色
 $neu-border-light-color: rgba(255, 255, 255, 0.5);
@@ -62,23 +62,20 @@ $neu-sunken-container: inset $neu-blur $neu-blur $neu-blur $neu-dark-color,
 
 // 表面 凹陷 concave
 @mixin concave {
-  background: $neu-concave-surface-color;
-  border-radius: $neu-radio;
   margin: $neu-margin;
+  margin: $neu-concave-surface-color;
 }
 
 // 表面 突出 convex
 @mixin convex {
-  background: $neu-convex-surface-color;
-  border-radius: $neu-radio;
   margin: $neu-margin;
+  margin: $neu-convex-surface-color;
 }
 
 // 表面 平坦 flat
 @mixin flat {
-  background: $neu-main-them-color;
-  border-radius: $neu-radio;
   margin: $neu-margin;
+  margin: $neu-main-them-color;
 }
 
 // 塌陷 sunken
@@ -86,9 +83,9 @@ $neu-sunken-container: inset $neu-blur $neu-blur $neu-blur $neu-dark-color,
   background: $neu-main-them-color;
   box-shadow: $neu-sunken-container;
   border-radius: $neu-radio;
-  padding-top: 10px;
-  padding-bottom: 0px;
   margin: $neu-margin;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
 
 // 突起 protuberant
@@ -96,9 +93,9 @@ $neu-sunken-container: inset $neu-blur $neu-blur $neu-blur $neu-dark-color,
   background: $neu-main-them-color;
   box-shadow: $neu-convex-container;
   border-radius: $neu-radio;
-  padding-top: 6px;
-  padding-bottom: 4px;
   margin: $neu-margin;
+  margin-top: 6px;
+  margin-bottom: 14px;
 }
 
 // 常规 common
@@ -106,7 +103,7 @@ $neu-sunken-container: inset $neu-blur $neu-blur $neu-blur $neu-dark-color,
   background: $neu-main-them-color;
   box-shadow: none;
   border-radius: $neu-radio;
-  padding-top: 8px;
-  padding-bottom: 2px;
   margin: $neu-margin;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
