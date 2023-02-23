@@ -1,36 +1,29 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-type Fn = (data: FcResponse<any>) => unknown;
+import { handleError, handleResponse } from "./interceptors";
 
-interface IAnyObj {
-  [index: string]: unknown;
-}
+const felineApi = axios.create({
+  baseURL: "/",
+});
 
-interface FcResponse<T> {
-  errno: string;
-  errNsg: string;
-  data: T;
-}
+felineApi.interceptors.request.use((config: AxiosRequestConfig) => {
+  return config;
+});
 
-// 封装 get 方法
-export const get = <T>(
-  url: string,
-  params: IAnyObj = {},
-  clearFn?: Fn
-): Promise<[any, FcResponse<T> | undefined]> =>
-  new Promise((resolve) => {
-    axios
-      .get(url, { params })
-      .then((res) => {
-        let result: FcResponse<T>;
-        if (clearFn != undefined) {
-          result = clearFn(res.data) as unknown as FcResponse<T>;
-        } else {
-          result = res.data as FcResponse<T>;
-        }
-        resolve([null, result as FcResponse<T>]);
-      })
-      .catch((err) => {
-        resolve([err, undefined]);
-      });
+felineApi.interceptors.response.use(handleResponse, handleError);
+
+// get 封装
+export const get = (url: string, params: any) => {
+  return felineApi.get(url, {
+    params,
   });
+};
+
+// post 封装
+export const post = (url: string, data: any) => {
+  return felineApi.post(url, {
+    data,
+  });
+};
+
+export default felineApi;
