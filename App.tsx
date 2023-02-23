@@ -7,6 +7,7 @@ import TopBar from "./src/components/TopBar";
 import NeuContainer from "@/components/NeuContainer";
 import Constructing from "@/components/Constructing";
 import NeuTest from "./src/components/NeuTest";
+import { BlogList } from "@/components/Blog/BlogList";
 
 const router = createBrowserRouter([
   {
@@ -14,16 +15,16 @@ const router = createBrowserRouter([
     element: <>index</>,
   },
   {
-    path: "/1",
+    path: "/blog/list",
+    element: <BlogList />,
+  },
+  {
+    path: "/blog/detail/:id",
     element: <>1</>,
   },
   {
-    path: "/2",
-    element: <>2</>,
-  },
-  {
-    path: "/3",
-    element: <>3</>,
+    path: "/neu/test",
+    element: <NeuTest />,
   },
 ]);
 
@@ -41,7 +42,7 @@ function App() {
         </NeuContainer>
       </div>
       <div className="content-bar">
-        <NeuContainer type="protuberant">
+        <NeuContainer type="common">
           <RouterProvider router={router} />
         </NeuContainer>
       </div>
