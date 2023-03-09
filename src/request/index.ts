@@ -3,10 +3,13 @@ import axios, { AxiosRequestConfig } from "axios";
 import { handleError, handleResponse } from "./interceptors";
 
 const felineApi = axios.create({
-  baseURL: "/",
+  baseURL: "http://localhost:9000",
 });
 
 felineApi.interceptors.request.use((config: AxiosRequestConfig) => {
+  // config.headers["Content-Language"] = "zh-CN,en-US";
+  // config.headers["Accept-Language"] = "zh-CN,en-US";
+  // config.headers["Content-Type"] = "application/json,*/*";
   return config;
 });
 
