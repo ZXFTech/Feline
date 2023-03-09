@@ -14,26 +14,27 @@ body {
 .left-bar,
 .right-bar {
   box-sizing: border-box;
-  width: 500px; }
+  width: 500px;
+  position: fixed; }
 
 .left-bar {
-  float: left; }
+  left: 0; }
 
 .right-bar {
-  float: right; }
+  right: 0; }
 
 .content-bar {
   margin-left: 500px;
   margin-right: 500px; }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
   .left-bar,
   .right-bar {
     display: none; }
 
   .content-bar {
     margin: 0; } }
-@media screen and (min-width: 1300px) and (max-width: 2000px) {
+@media screen and (min-width: 1000px) and (max-width: 2000px) {
   .right-bar {
     display: none; }
 
