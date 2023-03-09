@@ -15,12 +15,15 @@ interface Props {
   type?: neuType;
   hover?: neuType;
   size?: neuSize;
+  onClick?: () => void;
+  // onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>): void => {};
 }
 
 const NeuContainer = ({
   children,
   className,
   style,
+  onClick,
   type = "common",
   hover = undefined,
 }: Props) => {
@@ -30,6 +33,7 @@ const NeuContainer = ({
         className ? className : ""
       }`}
       style={style}
+      onClick={onClick}
     >
       {children}
     </div>
