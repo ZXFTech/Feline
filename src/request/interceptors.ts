@@ -44,7 +44,6 @@ export const handleNetworkError = (errorStatus: string) => {
 
 // header 配置
 export const handleRequestHeader = (config: IConfig) => {
-  config["xxxx"] = "xxxx";
   return config;
 };
 
@@ -56,7 +55,10 @@ export const handleAuth = (config: IConfig) => {
 
 // 相应处理
 export const handleResponse = (response: AxiosResponse) => {
-  return response;
+  if (response.status.toString().startsWith("2")) {
+    return response.data;
+  }
+  return response.data;
 };
 
 // 错误处理
@@ -65,6 +67,5 @@ export const handleError = (error: AxiosError) => {
     errorStatusEnum[error.code] ||
     `其他错误 -- 错误码:${error.code} 错误信息:${error.message}`;
   console.log(errorMessage);
-  // Promise.reject(errorMessage);
-  return error;
+  return Promise.reject(errorMessage);
 };
