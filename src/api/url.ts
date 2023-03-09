@@ -2,8 +2,12 @@
 /**
  * @description 博客列表
  */
-export const blogList = "/blog/list";
+export const urlBlogList = "/blog/list";
 /**
  * @description 博客详情
  */
-export const blogDetail = "/blog/detail";
+export const urlBlogDetail = "/blog/detail";
+/**
+ * @description 添加博客
+ */
+export const urlAddBlog = "/blog/add";
