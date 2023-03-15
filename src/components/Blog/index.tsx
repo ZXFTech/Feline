@@ -1,36 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import Tag from "../Tag";
-
-import blog from "./blog.json";
+import { FBlog } from "@/types/blogs";
 
 import "./index.css";
-
-interface IBlog {
-  title: string;
-  tags: string;
-  author: string;
-  gmtCreate: string;
-  likes: number;
-  content: string;
-}
-
+import { useParams } from "react-router-dom";
+import ErrorPage from "../ErrorPage";
+import { getBLogDetail } from "@/api/blogs";
+import ReactMarkdown from "react-markdown";
+import Loading from "../Loading";
+import CodeBlock from "../CodeBlock";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 const Blog = () => {
-  let blogContent: IBlog = blog;
+  const { id } = useParams();
+
+  const [blog, setBlog] = useState(null);
+
+  const [loading, setLoading] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    setLoading(true);
+
+    getBLogDetail(id)
+      .then((res) => {
+        console.log("res", res);
+        setBlog(res.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+        setErrorMessage(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div>
-      <h1 className="blog-title">{blogContent.title}</h1>
-      <div className="blog-tags">
-        {blogContent.tags.split(" ").map((item) => (
-          <Tag color="#fff">#{item}</Tag>
-        ))}
-      </div>
-      <div className="blog-info">
-        <div className="blog-author">{blogContent.author}</div>
-        <div className="blog-gmtCreate">{blogContent.gmtCreate}</div>
-        <div className="blog-likes">{blogContent.likes}</div>
-      </div>
-      <div className="blog-content">{blogContent.content}</div>
+      <div className="toolbar"></div>
+      <Loading visible={loading}>
+        {blog ? (
+          <>
+            <h1 className="blog-title">{blog.title}</h1>
+
+            <div className="blog-info">
+              <div className="blog-author">{blog.author}</div>
+              <div className="blog-gmtCreate">{blog.gmtCreate}</div>
+              <div className="blog-likes">{blog.likes}</div>
+            </div>
+            <ReactMarkdown
+              children={blog.content}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || "");
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      children={String(children).replace(/\n$/, "")}
+                      style={vscDarkPlus}
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    />
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            />
+          </>
+        ) : (
+          !loading && <ErrorPage message={errorMessage} />
+        )}
+      </Loading>
     </div>
   );
 };
