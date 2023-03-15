@@ -60,6 +60,7 @@
     "@types/react-dom": "^18.0.6",
     "antd": "^4.23.2",
     "axios": "^0.27.2",
+    "classnames": "^2.3.2",
     "commitizen": "^4.2.5",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
@@ -69,8 +70,10 @@
     "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.5",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.4",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-syntax-highlighter": "^15.5.0"
   }
 }
