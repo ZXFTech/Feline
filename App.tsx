@@ -8,6 +8,7 @@ import NeuContainer from "@/components/NeuContainer";
 import Constructing from "@/components/Constructing";
 import NeuTest from "./src/components/NeuTest";
 import { BlogList } from "@/components/Blog/BlogList";
+import Blog from "@/components/Blog";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/blog/detail/:id",
-    element: <>1</>,
+    element: <Blog />,
   },
   {
     path: "/neu/test",
