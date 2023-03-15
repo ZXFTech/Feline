@@ -11,22 +11,30 @@ interface Props {
 }
 
 const Breviary = ({
-  blog: { title, tags, blogId, author, gmtCreate, content },
+  blog: { title, id, author, gmtCreate, content },
 }: Props) => {
+  const handleClick = () => {
+    window.location.href = `/blog/detail/${id}`;
+  };
   return (
-    <NeuContainer type="common" hover="protuberant" className="blog-breviary">
+    <NeuContainer
+      type="common"
+      hover="protuberant"
+      className="blog-breviary"
+      onClick={handleClick}
+    >
       <h2 className="breviary-title">{title}</h2>
       <div className="breviary-author-date">
         <span className="breviary-author">{author}</span>
         <span className="breviary-date">{gmtCreate}</span>
       </div>
-      <div className="breviary-tags">
+      {/* <div className="breviary-tags">
         {tags.map((tag) => (
           <Tag key={tag.content} color={tag.color}>
             {tag.content}
           </Tag>
         ))}
-      </div>
+      </div> */}
       <div className="breviary-content">{content.slice(0, 200)}</div>
     </NeuContainer>
   );
