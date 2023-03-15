@@ -4,11 +4,10 @@ export interface FTag {
 }
 
 export interface FBlog {
-  blogId: number;
+  id?: number;
   title: string;
   author: string;
-  tags: FTag[];
-  gmtCreate: string;
+  gmtCreate?: string;
   content: string;
-  likes: number;
+  likes?: number;
 }
