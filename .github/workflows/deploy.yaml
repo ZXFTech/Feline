@@ -1,0 +1,33 @@
+name: Github pages
+
+on:
+  push:
+    branches: [feature/github-action]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  Deploy-Github-Page:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Use Mode.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - run: npm i
+      - run: npm run build
+      - name: Deploy to aliyun server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.FELINE }}
+          SOURCE: "dist/"
+          REMOTE_HOST: 120.55.48.177
+          REMOTE_USER: root
+          ALIYUN_TARGET: "/root"
