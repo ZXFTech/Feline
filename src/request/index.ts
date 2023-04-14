@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { handleError, handleResponse } from "./interceptors";
 
 const felineApi = axios.create({
-  baseURL: "http://localhost:9000",
+  baseURL: "http://localhost:9000/api",
 });
 
 felineApi.interceptors.request.use((config: AxiosRequestConfig) => {
