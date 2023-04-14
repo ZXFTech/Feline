@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import style from "./App.module.scss";
 
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -9,11 +9,13 @@ import Constructing from "@/components/Constructing";
 import NeuTest from "./src/components/NeuTest";
 import { BlogList } from "@/components/Blog/BlogList";
 import Blog from "@/components/Blog";
+import LandingPage from "@/page/LandingPage";
+import Navbar from "@/components/Navbar";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <>index</>,
+    element: <LandingPage />,
   },
   {
     path: "/blog/list",
@@ -31,23 +33,28 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="main-container">
-      <div className="left-bar">
-        <NeuContainer type="protuberant">
-          <Constructing />
-        </NeuContainer>
+    <>
+      <Navbar />
+      <div className={style["main-container"]}>
+        <div className={style["left-bar"]}>
+          <NeuContainer type="protuberant">
+            <Constructing />
+          </NeuContainer>
+        </div>
+
+        <div className={style["right-bar"]}>
+          <NeuContainer type="protuberant">
+            <Constructing />
+          </NeuContainer>
+        </div>
+        <div className={style["content-bar"]}>
+          <NeuContainer type="common">
+            <RouterProvider router={router} />
+          </NeuContainer>
+        </div>
       </div>
-      <div className="right-bar">
-        <NeuContainer type="sunken">
-          <Constructing />
-        </NeuContainer>
-      </div>
-      <div className="content-bar">
-        <NeuContainer type="common">
-          <RouterProvider router={router} />
-        </NeuContainer>
-      </div>
-    </div>
+      <div className={style.foot}>备案号: 浙ICP备2023006378号</div>
+    </>
   );
 }
 
