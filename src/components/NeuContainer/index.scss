@@ -89,3 +89,14 @@
 .hover-concave:hover {
   @include concave;
 }
+
+// 点击时的效果
+.active-protuberant:active {
+  @include protuberant;
+}
+.active-sunken:active {
+  @include sunken;
+}
+.active-common:active {
+  @include common;
+}

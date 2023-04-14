@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode } from "react";
 
-import "./index.css";
+import "./index.scss";
 
 export type neuType = "sunken" | "common" | "protuberant" | undefined;
 
@@ -15,6 +15,7 @@ interface Props {
   type?: neuType;
   hover?: neuType;
   size?: neuSize;
+  active?: neuType;
   onClick?: () => void;
   // onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>): void => {};
 }
@@ -24,14 +25,15 @@ const NeuContainer = ({
   className,
   style,
   onClick,
+  active = undefined,
   type = "common",
   hover = undefined,
 }: Props) => {
   return (
     <div
       className={`${type} ${hover ? "hover-" + hover : ""} ${
-        className ? className : ""
-      }`}
+        active ? "active-" + active : ""
+      } ${className ? className : ""}`}
       style={style}
       onClick={onClick}
     >
