@@ -1,0 +1,59 @@
+@import "../../../styles/variables.scss";
+
+.navbar-container {
+  z-index: 9999;
+  position: fixed;
+  top: -10px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  margin: 0g;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  .icon {
+    font-size: 42px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .link {
+      font-weight: 700;
+      font-size: 16px;
+      margin-right: 16px;
+      cursor: pointer;
+      padding: 10px 20px;
+      animation: upAndDown 0.8s ease-in;
+      animation-delay: calc(0.2s * var(--i));
+    }
+  }
+}
+
+@keyframes upAndDown {
+  0% {
+    @include common;
+    margin-right: 16px;
+  }
+
+  50% {
+    @include protuberant;
+    margin-right: 16px;
+  }
+
+  100% {
+    @include common;
+    margin-right: 16px;
+  }
+}
