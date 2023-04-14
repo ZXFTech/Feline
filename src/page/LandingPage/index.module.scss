@@ -1,0 +1,182 @@
+@import "../../../styles/variables.scss";
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  // 个人信息
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    .logo {
+      width: 200px;
+      height: 200px;
+      padding: 8px;
+      animation: flatToUp 0.5s ease-in forwards;
+      opacity: 0;
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    .meta {
+      .name {
+        animation: flatToDown 0.5s ease-in forwards;
+        opacity: 0;
+        animation-delay: 0.2s;
+      }
+      .name,
+      .signature {
+        font-size: 57px;
+        line-height: 100%;
+        padding: 20px;
+
+        .signature {
+          font-size: 20px;
+          line-height: 40px;
+          width: auto;
+          padding: 20px 0;
+
+          & > * {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .clock {
+    width: auto;
+    padding: 10px 40px;
+    font-size: 40px;
+    line-height: 60px;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+
+  // 生活相关
+  .life {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    .weather {
+      height: 120px;
+      width: 45%;
+      background: #222;
+    }
+
+    .clock {
+      height: 120px;
+      width: 40%;
+      background: #222;
+    }
+  }
+
+  // 导航
+  .navigation {
+    border: 1px black solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+    .nav-block {
+      width: 30%;
+      margin-left: 1.5%;
+      margin-right: 1.5%;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+  }
+
+  // 个人联系方式区域
+  .contact-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    .contact {
+      border: 1px solid #222;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      transition: all ease 0.4s;
+
+      i {
+        font-size: 20px;
+        line-height: 50px;
+        color: #ddd;
+      }
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+
+    .github:hover {
+      i {
+        color: rgb(36, 41, 47);
+      }
+    }
+
+    .weixin:hover {
+      background: rgb(42, 174, 103);
+      i {
+        color: rgb(234, 247, 240);
+      }
+    }
+
+    .weibo:hover {
+      background: rgb(227, 37, 41);
+    }
+
+    .qq:hover {
+      i {
+        color: rgb(24, 180, 237);
+      }
+    }
+    .microsoft:hover {
+      background: rgb(15, 108, 189);
+    }
+    .twitter:hover {
+      background: rgb(29, 155, 240);
+    }
+  }
+}
+
+@keyframes flatToUp {
+  0% {
+    @include common;
+  }
+  100% {
+    @include protuberant;
+    opacity: 1;
+  }
+}
+
+@keyframes flatToDown {
+  0% {
+    @include common;
+  }
+  100% {
+    @include sunken;
+    opacity: 1;
+  }
+}
