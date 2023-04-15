@@ -32,8 +32,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [theme, setTheme] = useState("light");
   return (
-    <>
+    <div className={style[theme]}>
       <Navbar />
       <div className={style["main-container"]}>
         <div className={style["left-bar"]}>
@@ -54,7 +55,7 @@ function App() {
         </div>
       </div>
       <div className={style.foot}>备案号: 浙ICP备2023006378号</div>
-    </>
+    </div>
   );
 }
 

@@ -1,6 +1,14 @@
 @import "./styles/global.scss";
 @import "./styles/variables.scss";
 
+.light {
+  background-color: $neu-light-theme-color;
+  color: $neu-light-font-color;
+}
+
+.dark {
+}
+
 .main-container {
   position: relative;
   padding-top: 100px;

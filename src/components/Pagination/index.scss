@@ -28,7 +28,6 @@
   .page-next,
   .page-letter {
     &:hover {
-      background: $neu-main-them-color;
       box-shadow: 4px 4px 10px $neu-dark-color,
         0-4px 0-4px 10px $neu-light-color;
       border-radius: $neu-radio;
