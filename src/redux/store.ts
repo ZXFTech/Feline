@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-import { createStore } from "@reduxjs/toolkit";
+import themeReducer from "./theme/themeSlice";
 
 // import counterReduce from "./counter/counterSlice";
 // import postSlice from "./posts/postSlice";
@@ -11,6 +10,8 @@ import { createStore } from "@reduxjs/toolkit";
 // });
 
 // 创建 store,里面包含所有的 reducer
-export default configureStore({
-  reducer: {},
+export const store = configureStore({
+  reducer: { theme: themeReducer },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
