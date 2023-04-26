@@ -11,6 +11,9 @@ import { BlogList } from "@/components/Blog/BlogList";
 import Blog from "@/components/Blog";
 import LandingPage from "@/page/LandingPage";
 import Navbar from "@/components/Navbar";
+import { selectTheme } from "@/redux/theme/themeSlice";
+import { useSelector } from "react-redux";
+import { useTheme } from "@/hooks/global";
 
 const router = createBrowserRouter([
   {
@@ -32,9 +35,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const theme = useSelector(selectTheme);
   return (
-    <div className={style[theme]}>
+    <div className={style[useTheme(theme)]}>
       <Navbar />
       <div className={style["main-container"]}>
         <div className={style["left-bar"]}>
