@@ -81,7 +81,7 @@ const NeuContainer = ({
     "--radius": radius,
     "--dark": calcShadowColor(themeColor, (intensity / 100) * -1),
     "--light": calcShadowColor(themeColor, intensity / 100),
-    "--i": animationDelay || Math.random(),
+    "--neuDelay": animationDelay || Math.random(),
     // transition: "all 0.309s ease-in-out",
     // "transition-delay": `${animationDelay || Math.random() * 0.5}s`,
     ...style,

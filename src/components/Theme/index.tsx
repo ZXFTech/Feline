@@ -13,7 +13,7 @@ const DEFAULT_DARK_COLOR = "#2C2F3B";
 const DEFAULT_LIGHT_COLOR = "#f9f7f0";
 
 const Theme = () => {
-  const [dark, setDark] = useState(false);
+  const [light, setLight] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -22,11 +22,11 @@ const Theme = () => {
       active="common"
       className={style["theme-button"]}
       onClick={() => {
-        setDark(!dark);
-        dispatch(changeTheme(dark ? DEFAULT_DARK_COLOR : DEFAULT_LIGHT_COLOR));
+        setLight(!light);
+        dispatch(changeTheme(light ? DEFAULT_LIGHT_COLOR : DEFAULT_DARK_COLOR));
       }}
     >
-      <div className={`${style.theme} ${style[useTheme(dark)]} `}>
+      <div className={`${style.theme} ${style[useTheme(light)]}`}>
         <i className="fa-solid fa-sun"></i>
         <i className="fa-solid fa-moon"></i>
       </div>

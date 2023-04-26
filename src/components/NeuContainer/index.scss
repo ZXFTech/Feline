@@ -43,7 +43,7 @@
 
 .basic {
   transition: background-color 0.309s ease-in-out, color 0.309s ease-in-out;
-  transition-delay: calc(0.5s * var(--i));
+  transition-delay: calc(0.5s * var(--neuDelay));
   background-color: var(--baseColor);
   color: var(--textColor);
 }
