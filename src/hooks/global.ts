@@ -8,20 +8,21 @@ export const useTheme = (theme: boolean | string) => {
 
 // 根据主题颜色来确定阴影颜色
 export const calcShadowColor = (hex: string, lum: number) => {
-  hex = String(hex).replace(/^0-9a-f/gi, "");
-
+  hex = String(hex).replace(/[^0-9a-f]/gi, "");
   if (hex.length < 6) {
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
 
   lum = lum || 0;
+  console.log("lum", lum);
   let rgb = "#",
     c;
-  for (let i = 0; i < hex.length; i++) {
-    c = parseInt(hex.substring(i * 2, 2), 16);
+  for (let i = 0; i < 3; i++) {
+    c = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
     c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16);
     rgb += c;
   }
+  return rgb;
 };
 
 // 根据主题颜色来确定字体颜色
