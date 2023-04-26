@@ -4,16 +4,16 @@ import { RootState } from "../store";
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    value: true, // true for dark
+    color: "#f9f7f0",
   },
   reducers: {
-    changeTheme: (state) => {
-      state.value = !state.value;
+    changeTheme: (state, action) => {
+      state.color = action.payload;
     },
   },
 });
 
-export const selectTheme = (state: RootState) => state.theme.value;
+export const selectTheme = (state: RootState) => state.theme.color;
 
 export const { changeTheme } = themeSlice.actions;
 

@@ -1,20 +1,19 @@
 @import "./styles/global.scss";
 @import "./styles/variables.scss";
 
-.light {
-  background-color: $neu-light-theme-color;
-  color: $neu-light-font-color;
-}
-
-.dark {
-  background-color: $neu-dark-theme-color;
-  color: $neu-dark-font-color;
-}
-
-// .light,
-// .dark {
-//   transition: background-color 0.618s ease-in-out, color 0.618s ease-in-out;
+// .light {
+//   background-color: $neu-light-theme-color;
+//   color: $neu-light-font-color;
 // }
+
+// .dark {
+//   background-color: $neu-dark-theme-color;
+//   color: $neu-dark-font-color;
+// }
+
+.basic {
+  transition: background-color 0.618s ease-in-out, color 0.618s ease-in-out;
+}
 
 .main-container {
   position: relative;

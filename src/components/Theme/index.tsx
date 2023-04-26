@@ -8,8 +8,12 @@ import style from "./index.module.scss";
 import NeuContainer from "../NeuContainer";
 import { useTheme } from "@/hooks/global";
 
+// const DEFAULT_DARK_COLOR = "#153C46";
+const DEFAULT_DARK_COLOR = "#2C2F3B";
+const DEFAULT_LIGHT_COLOR = "#f9f7f0";
+
 const Theme = () => {
-  const theme = useSelector(selectTheme);
+  const [dark, setDark] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -18,10 +22,11 @@ const Theme = () => {
       active="common"
       className={style["theme-button"]}
       onClick={() => {
-        dispatch(changeTheme());
+        setDark(!dark);
+        dispatch(changeTheme(dark ? DEFAULT_DARK_COLOR : DEFAULT_LIGHT_COLOR));
       }}
     >
-      <div className={`${style.theme} ${style[useTheme(theme)]} `}>
+      <div className={`${style.theme} ${style[useTheme(dark)]} `}>
         <i className="fa-solid fa-sun"></i>
         <i className="fa-solid fa-moon"></i>
       </div>

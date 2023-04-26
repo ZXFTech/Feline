@@ -13,7 +13,7 @@ import LandingPage from "@/page/LandingPage";
 import Navbar from "@/components/Navbar";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import { useSelector } from "react-redux";
-import { useTheme } from "@/hooks/global";
+import { calcFontColor, useTheme } from "@/hooks/global";
 
 const router = createBrowserRouter([
   {
@@ -35,9 +35,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const theme = useSelector(selectTheme);
+  const themeColor = useSelector(selectTheme);
   return (
-    <div className={style[useTheme(theme)]}>
+    <div
+      className={style.basic}
+      style={{ background: themeColor, color: calcFontColor(themeColor) }}
+    >
       <Navbar />
       <div className={style["main-container"]}>
         <div className={style["left-bar"]}>
