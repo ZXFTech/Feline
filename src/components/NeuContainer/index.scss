@@ -23,31 +23,57 @@
   }
 }
 
-// 整体
-// 突起
-.protuberant {
-  @include protuberant;
-}
-// 塌陷
-.sunken {
-  @include sunken;
-}
-// 常规
-.common {
-  @include common;
+.basic {
+  transition: all 0.618s ease-in-out;
+  transition-duration: calc(0.5s * var(--i));
+  background-color: $neu-dark-theme-color;
+  color: $neu-dark-font-color;
 }
 
-// hover 突起
-.hover-protuberant:hover {
-  @include protuberant;
+.light {
+  background-color: $neu-light-theme-color;
+  color: $neu-light-font-color;
 }
-// hover 塌陷
+
+// 整体
+// 突起
+.protuberant,
+.hover-protuberant:hover,
+.active-protuberant:active {
+  box-shadow: $neu-protuberant-container;
+  border-radius: $neu-radio;
+  margin: $neu-margin;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+.protuberant.light,
+.hover-protuberant.light:hover {
+  box-shadow: $neu-protuberant-light-container;
+}
+
+// 塌陷
+.sunken,
 .hover-sunken:hover {
-  @include sunken;
+  box-shadow: $neu-sunken-container;
+  border-radius: $neu-radio;
+  margin: $neu-margin;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
-// hover 常规
+
+.sunken.light,
+.hover-sunken.light:hover {
+  box-shadow: $neu-sunken-light-container;
+}
+
+// 常规
+.common,
 .hover-common:hover {
-  @include common;
+  border-radius: $neu-radio;
+  margin: $neu-margin;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 // hover 平面 凹陷
@@ -89,10 +115,6 @@
   @include concave;
 }
 
-// 点击时的效果
-.active-protuberant:active {
-  @include protuberant;
-}
 .active-sunken:active {
   @include sunken;
 }

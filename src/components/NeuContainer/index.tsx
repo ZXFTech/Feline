@@ -1,6 +1,9 @@
 import React, { CSSProperties, ReactNode } from "react";
 
 import "./index.scss";
+import { useSelector } from "react-redux";
+import { selectTheme } from "@/redux/theme/themeSlice";
+import { useTheme } from "@/hooks/global";
 
 export type neuType = "sunken" | "common" | "protuberant" | undefined;
 
@@ -29,12 +32,19 @@ const NeuContainer = ({
   type = "common",
   hover = undefined,
 }: Props) => {
+  const theme = useSelector(selectTheme);
   return (
     <div
-      className={`${type} ${hover ? "hover-" + hover : ""} ${
+      className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
         active ? "active-" + active : ""
-      } ${className ? className : ""}`}
-      style={style}
+      } ${className ? className : ""} ${!theme && useTheme(theme)}`}
+      datatype={useTheme(theme) + type}
+      style={
+        {
+          ...style,
+          "--i": Math.random(),
+        } as CSSProperties
+      }
       onClick={onClick}
     >
       {children}
