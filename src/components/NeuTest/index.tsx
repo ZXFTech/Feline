@@ -4,7 +4,7 @@ import imgUrl from "../../assets/avatar.jpg";
 
 import NeuContainer from "../NeuContainer";
 
-import "./index.css";
+import style from "./index.module.css";
 
 // type 描述整体突起还是塌陷  突起 | 塌陷 | 平坦(默认)
 // surface 描述表面突起还是塌陷 突起 | 塌陷 | 平坦(默认)
