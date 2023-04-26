@@ -1,50 +1,70 @@
 @import "../../../styles/variables.scss";
 
-.test-container {
-  padding: 20px;
-  width: 100%;
-  height: 1000px;
-  text-align: center;
+:root {
+  --blur: 60px;
+  --textColor: #001f3f;
+  --textColorOpposite: #f6f5f7;
+  --firstGradientColor: #dadada;
+  --lightColor: #adadad;
+  --secondGradientColor: #adadad;
+  --positionX: 30px;
+  --positionXOpposite: -30px;
+  --positionY: 30px;
+  --positionYOpposite: -30px;
+  --angle: 145deg;
+  --size: 150px;
+  --radius: 30px;
+  // --dark: black;
+  // --light: white;
 }
 
-.standardSize {
-  padding: 20px;
-  overflow: hidden;
-  margin: 10px;
-  box-sizing: border-box;
+// .test-container {
+//   padding: 20px;
+//   width: 100%;
+//   height: 1000px;
+//   text-align: center;
+// }
 
-  & > div {
-    overflow: hidden;
-    border-radius: 20px;
-    & > * {
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
+// .standardSize {
+//   padding: 20px;
+//   overflow: hidden;
+//   margin: 10px;
+//   box-sizing: border-box;
+
+//   & > div {
+//     overflow: hidden;
+//     border-radius: 20px;
+//     & > * {
+//       height: 100%;
+//       width: 100%;
+//     }
+//   }
+// }
 
 .basic {
-  transition: all 0.618s ease-in-out;
-  transition-duration: calc(0.5s * var(--i));
-  background-color: $neu-dark-theme-color;
-  color: $neu-dark-font-color;
+  transition: background-color 0.309s ease-in-out, color 0.309s ease-in-out;
+  transition-delay: calc(0.5s * var(--i));
+  background-color: var(--baseColor);
+  color: var(--textColor);
 }
 
-.light {
-  background-color: $neu-light-theme-color;
-  color: $neu-light-font-color;
-}
+// .light {
+//   background-color: $neu-light-theme-color;
+//   color: var(--textColor);
+// }
 
 // 整体
 // 突起
 .protuberant,
 .hover-protuberant:hover,
 .active-protuberant:active {
-  box-shadow: $neu-protuberant-container;
+  box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
+    var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
   border-radius: $neu-radio;
   margin: $neu-margin;
   margin-top: 6px;
   margin-bottom: 14px;
+  transition-delay: 0s;
 }
 
 .protuberant.light,
