@@ -7,7 +7,14 @@
 }
 
 .dark {
+  background-color: $neu-dark-theme-color;
+  color: $neu-dark-font-color;
 }
+
+// .light,
+// .dark {
+//   transition: background-color 0.618s ease-in-out, color 0.618s ease-in-out;
+// }
 
 .main-container {
   position: relative;
