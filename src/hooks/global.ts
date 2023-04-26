@@ -26,10 +26,9 @@ export const calcShadowColor = (hex: string, lum: number) => {
 
 // 根据主题颜色来确定字体颜色
 export const calcFontColor = (hex: string) => {
-  const r = parseInt(hex.substring(1, 2), 16),
-    g = parseInt(hex.substring(3, 2), 16),
-    b = parseInt(hex.substring(4, 2), 16);
-
+  const r = parseInt(hex.substring(1, 3), 16),
+    g = parseInt(hex.substring(3, 5), 16),
+    b = parseInt(hex.substring(5, 7), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
   return yiq >= 128 ? "#001f3f" : "#F6F5F7";
 };
