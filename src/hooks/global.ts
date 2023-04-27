@@ -14,7 +14,6 @@ export const calcShadowColor = (hex: string, lum: number) => {
   }
 
   lum = lum || 0;
-  console.log("lum", lum);
   let rgb = "#",
     c;
   for (let i = 0; i < 3; i++) {

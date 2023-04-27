@@ -64,10 +64,6 @@ const NeuContainer = ({
 }: Props) => {
   const themeColor = useSelector(selectTheme);
 
-  console.log(
-    "calcShadowColor(themeColor, intensity / 100)",
-    calcShadowColor(themeColor, intensity / 100)
-  );
   let neuClass = classNames("basic", type, active, hover, className);
   let neuStyle = {
     "--baseColor": themeColor,

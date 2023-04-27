@@ -3,6 +3,7 @@ import Theme from "../Theme";
 
 import style from "./index.module.scss";
 import NeuContainer from "../NeuContainer";
+import { Link } from "react-router-dom";
 
 // 左侧 图标加名称
 // 右侧 导航栏
@@ -23,7 +24,7 @@ const Navbar = () => {
           className={style.link}
           style={{ "--i": 2 } as CSSProperties}
         >
-          博文
+          <Link to={"/blog/list"}>博文</Link>
         </NeuContainer>
         <NeuContainer
           hover="protuberant"
