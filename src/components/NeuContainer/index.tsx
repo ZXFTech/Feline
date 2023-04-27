@@ -82,7 +82,7 @@ const NeuContainer = ({
     "--dark": calcShadowColor(themeColor, (intensity / 100) * -1),
     "--light": calcShadowColor(themeColor, intensity / 100),
     "--neuDelay": animationDelay || Math.random(),
-    // transition: "all 0.309s ease-in-out",
+    ...(animation && { transition: "all 0.309s ease-in-out" }),
     // "transition-delay": `${animationDelay || Math.random() * 0.5}s`,
     ...style,
   } as CSSProperties;
@@ -96,21 +96,6 @@ const NeuContainer = ({
     >
       {children}
     </div>
-    // <div
-    //   className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
-    //     active ? "active-" + active : ""
-    //   } ${className ? className : ""} ${!theme && useTheme(theme)}`}
-    //   datatype={useTheme(theme) + type}
-    //   style={
-    //     {
-    //       ...style,
-    //       "--i": Math.random(),
-    //     } as CSSProperties
-    //   }
-    //   onClick={onClick}
-    // >
-    //   {children}
-    // </div>
   );
 };
 

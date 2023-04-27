@@ -13,7 +13,7 @@
   --positionYOpposite: -30px;
   --angle: 145deg;
   --size: 150px;
-  --radius: 30px;
+  --radius: 10px;
   // --dark: black;
   // --light: white;
 }
@@ -53,6 +53,12 @@
 //   color: var(--textColor);
 // }
 
+.protuberant,
+.common,
+.sunken {
+  border-radius: var(--radius);
+}
+
 // 整体
 // 突起
 .protuberant,
@@ -60,7 +66,6 @@
 .active-protuberant:active {
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
     var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
-  border-radius: $neu-radio;
   margin: $neu-margin;
   margin-top: 6px;
   margin-bottom: 14px;
@@ -69,14 +74,16 @@
 
 .protuberant.light,
 .hover-protuberant.light:hover {
-  box-shadow: $neu-protuberant-light-container;
+  box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
+    var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
 }
 
 // 塌陷
 .sunken,
 .hover-sunken:hover {
-  box-shadow: $neu-sunken-container;
-  border-radius: $neu-radio;
+  box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--dark),
+    inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+      var(--light);
   margin: $neu-margin;
   margin-top: 14px;
   margin-bottom: 6px;
@@ -84,60 +91,62 @@
 
 .sunken.light,
 .hover-sunken.light:hover {
-  box-shadow: $neu-sunken-light-container;
+  box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--dark),
+    inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+      var(--light);
 }
 
 // 常规
 .common,
 .hover-common:hover {
-  border-radius: $neu-radio;
+  box-shadow: none;
   margin: $neu-margin;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-// hover 平面 凹陷
-.hover-depress:hover {
-  @include concave;
-}
-// hover 平面 突出
-.hover-pop:hover {
-  @include convex;
-}
-// hover 平面 平面
-.hover-flat:hover {
-  @include flat;
-}
+// // hover 平面 凹陷
+// .hover-depress:hover {
+//   @include concave;
+// }
+// // hover 平面 突出
+// .hover-pop:hover {
+//   @include convex;
+// }
+// // hover 平面 平面
+// .hover-flat:hover {
+//   @include flat;
+// }
 
-// 表面突起
-.convex {
-  @include convex;
-}
-// 表面平坦
-.flat {
-  @include flat;
-}
-// 表面凹下
-.concave {
-  @include concave;
-}
+// // 表面突起
+// .convex {
+//   @include convex;
+// }
+// // 表面平坦
+// .flat {
+//   @include flat;
+// }
+// // 表面凹下
+// .concave {
+//   @include concave;
+// }
 
-// hover 表面突起
-.hover-convex:hover {
-  @include convex;
-}
-// hover 表面平坦
-.hover-flat:hover {
-  @include flat;
-}
-// hover 表面凹下
-.hover-concave:hover {
-  @include concave;
-}
+// // hover 表面突起
+// .hover-convex:hover {
+//   @include convex;
+// }
+// // hover 表面平坦
+// .hover-flat:hover {
+//   @include flat;
+// }
+// // hover 表面凹下
+// .hover-concave:hover {
+//   @include concave;
+// }
 
-.active-sunken:active {
-  @include sunken;
-}
-.active-common:active {
-  @include common;
-}
+// .active-sunken:active {
+//   @include sunken;
+// }
+// .active-common:active {
+//   @include common;
+// }
