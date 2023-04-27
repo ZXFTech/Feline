@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import NeuContainer from "../NeuContainer";
 
-import "./index.css";
+import style from "./index.module.scss";
 
 interface Props {
   visible: boolean;
@@ -14,7 +14,6 @@ const Loading = ({ visible, children }: Props) => {
   useEffect(() => {
     setTimeout(() => {
       setShow(visible);
-      console.log("111", 111);
     }, 100);
   }, [visible]);
 
@@ -28,15 +27,23 @@ const Loading = ({ visible, children }: Props) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="loading-container">
-      <div className={`mask ${visible ? "" : "container-hidden"}`}>
+    <div className={style["loading-container"]}>
+      <div
+        className={`${style.mask} ${visible ? "" : style["container-hidden"]}`}
+      >
         <NeuContainer
-          className={`flex-center ${show ? "flex-center-shadow" : ""}`}
+          className={`${style["flex-center"]} ${
+            show ? style["flex-center-shadow"] : ""
+          }`}
           type="protuberant"
         >
-          <div className={`ring ${show ? "ring-shadow" : ""}`}></div>
+          <div
+            className={`${style.ring} ${show ? style["ring-shadow"] : ""}`}
+          ></div>
           <NeuContainer
-            className={`inner-ring ${show ? "inner-ring-shadow" : ""}`}
+            className={`${style["inner-ring"]} ${
+              show ? style["inner-ring-shadow"] : ""
+            }`}
             type="sunken"
           ></NeuContainer>
         </NeuContainer>
