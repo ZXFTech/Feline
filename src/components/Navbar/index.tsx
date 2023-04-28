@@ -17,28 +17,28 @@ const Navbar = () => {
           className={style.link}
           style={{ "--i": 1 } as CSSProperties}
         >
-          主页
+          <Link to={"/"}>主页</Link>
         </NeuContainer>
         <NeuContainer
           hover="protuberant"
           className={style.link}
           style={{ "--i": 2 } as CSSProperties}
         >
-          <Link to={"/blog/list"}>博文</Link>
+          <Link to={`blog/list`}>博文</Link>
         </NeuContainer>
         <NeuContainer
           hover="protuberant"
           className={style.link}
           style={{ "--i": 3 } as CSSProperties}
         >
-          时间线
+          <Link to={`timeline`}>时间线</Link>
         </NeuContainer>
         <NeuContainer
           hover="protuberant"
           className={style.link}
           style={{ "--i": 4 } as CSSProperties}
         >
-          分类
+          <Link to={`timeline`}>分类</Link>
         </NeuContainer>
         <Theme />
       </div>

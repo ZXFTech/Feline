@@ -9,28 +9,37 @@ import Constructing from "@/components/Constructing";
 import NeuTest from "./src/components/NeuTest";
 import { BlogList } from "@/components/Blog/BlogList";
 import Blog from "@/components/Blog";
-import LandingPage from "@/page/LandingPage";
 import Navbar from "@/components/Navbar";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import { useSelector } from "react-redux";
 import { calcFontColor, useTheme } from "@/hooks/global";
+import ErrorPage from "@/components/ErrorPage";
+import Index from "@/page/Index";
+import LandingPage from "@/page/LandingPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
-  },
-  {
-    path: "/blog/list",
-    element: <BlogList />,
-  },
-  {
-    path: "/blog/detail/:id",
-    element: <Blog />,
-  },
-  {
-    path: "/neu/test",
-    element: <NeuTest />,
+    element: <Index />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "blog/list",
+        element: <BlogList />,
+      },
+      {
+        path: "blog/detail/:id",
+        element: <Blog />,
+      },
+      {
+        path: "neu/test",
+        element: <NeuTest />,
+      },
+    ],
   },
 ]);
 
@@ -41,25 +50,7 @@ function App() {
       className={style.basic}
       style={{ background: themeColor, color: calcFontColor(themeColor) }}
     >
-      <Navbar />
-      <div className={style["main-container"]}>
-        <div className={style["left-bar"]}>
-          <NeuContainer type="protuberant">
-            <Constructing />
-          </NeuContainer>
-        </div>
-
-        <div className={style["right-bar"]}>
-          <NeuContainer type="protuberant">
-            <Constructing />
-          </NeuContainer>
-        </div>
-        <div className={style["content-bar"]}>
-          <NeuContainer type="common">
-            <RouterProvider router={router} />
-          </NeuContainer>
-        </div>
-      </div>
+      <RouterProvider router={router} />
       <div className={style.foot}>备案号: 浙ICP备2023006378号</div>
     </div>
   );

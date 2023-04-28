@@ -37,6 +37,13 @@
       padding: 10px 20px;
       animation: upAndDown 0.8s ease-in;
       animation-delay: calc(0.25s * var(--i));
+
+      a {
+        text-decoration: none;
+        &:visited {
+          color: inherit;
+        }
+      }
     }
   }
 }
