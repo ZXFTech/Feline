@@ -26,7 +26,6 @@ const Blog = () => {
 
     getBLogDetail(id)
       .then((res) => {
-        console.log("res", res);
         setBlog(res.data);
       })
       .catch((err) => {

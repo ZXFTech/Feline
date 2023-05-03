@@ -66,6 +66,5 @@ export const handleError = (error: AxiosError) => {
   let errorMessage =
     errorStatusEnum[error.code] ||
     `其他错误 -- 错误码:${error.code} 错误信息:${error.message}`;
-  console.log(errorMessage);
   return Promise.reject(errorMessage);
 };

@@ -21,7 +21,6 @@ export const calcShadowColor = (hex: string, lum: number) => {
     c = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
     c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16);
     rgb += ("00" + c).substring(c.length);
-    console.log("rgb", rgb);
   }
   return rgb;
 };
@@ -63,14 +62,12 @@ export const rgbToHex = (r: string, g: string, b: string) => {
 };
 
 export const getDarkColor = (color: string, level: number) => {
-  console.log("color", color);
   let r = /^\#?[0-9A-F]{6}$/;
   if (!isValidColor(color)) return console.log("输入错误的hex颜色值111");
   let rgb = hexToRgb(color);
   //floor 向下取整
   for (let i = 0; i < 3; i++) rgb[i] = Math.floor(rgb[i] * (1 - level));
   const newColor = rgbToHex(rgb[0], rgb[1], rgb[2]);
-  console.log("newColor", newColor);
   return newColor;
 };
 
