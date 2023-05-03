@@ -16,12 +16,12 @@ import { calcFontColor, useTheme } from "@/hooks/global";
 import ErrorPage from "@/components/ErrorPage";
 import Index from "@/page/Index";
 import LandingPage from "@/page/LandingPage";
+import Edit from "@/components/Blog/Edit";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index />,
-    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -34,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "blog/detail/:id",
         element: <Blog />,
+      },
+      {
+        path: "blog/edit/:id",
+        element: <Edit />,
+      },
+      {
+        path: "blog/new",
+        element: <Edit />,
       },
       {
         path: "neu/test",
@@ -51,7 +59,6 @@ function App() {
       style={{ background: themeColor, color: calcFontColor(themeColor) }}
     >
       <RouterProvider router={router} />
-      <div className={style.foot}>备案号: 浙ICP备2023006378号</div>
     </div>
   );
 }
