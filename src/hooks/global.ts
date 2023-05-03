@@ -1,4 +1,5 @@
-import React from "react";
+import { NeuProps } from "@/components/NeuContainer";
+import React, { CSSProperties } from "react";
 
 export const useTheme = (theme: boolean | string) => {
   if (typeof theme === "boolean") {
@@ -19,7 +20,8 @@ export const calcShadowColor = (hex: string, lum: number) => {
   for (let i = 0; i < 3; i++) {
     c = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
     c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16);
-    rgb += c;
+    rgb += ("00" + c).substring(c.length);
+    console.log("rgb", rgb);
   }
   return rgb;
 };
@@ -35,3 +37,154 @@ export const calcFontColor = (hex: string) => {
 
 // 验证是否符合颜色格式 ^#[0-9a-f]{6}$
 export const isValidColor = (hex) => /^#[0-9a-f]{6}$/i.test(hex);
+
+// Hex 转 rgb
+export const hexToRgb = (hex: string) => {
+  //test方法检查在字符串中是否存在一个模式，如果存在则返回true，否则返回false
+  if (!isValidColor(hex)) return console.log("输入错误的hex颜色值");
+  //replace替换查找的到的字符串
+  hex = hex.replace("#", "");
+  //match得到查询数组
+  let hxs: any[] = hex.match(/../g);
+  for (let i = 0; i < 3; i++) hxs[i] = parseInt(hxs[i], 16);
+  return hxs;
+};
+export const rgbToHex = (r: string, g: string, b: string) => {
+  let reg = /^\d{1,3}$/;
+  if (!reg.test(r) || !reg.test(g) || !reg.test(b))
+    console.log("输入错误的hex颜色值");
+  let hex = [
+    parseInt(r).toString(16),
+    parseInt(g).toString(16),
+    parseInt(b).toString(16),
+  ];
+  for (let i = 0; i < 3; i++) if (hex[i].length == 1) hex[i] = "0" + hex[i];
+  return "#" + hex.join("");
+};
+
+export const getDarkColor = (color: string, level: number) => {
+  console.log("color", color);
+  let r = /^\#?[0-9A-F]{6}$/;
+  if (!isValidColor(color)) return console.log("输入错误的hex颜色值111");
+  let rgb = hexToRgb(color);
+  //floor 向下取整
+  for (let i = 0; i < 3; i++) rgb[i] = Math.floor(rgb[i] * (1 - level));
+  const newColor = rgbToHex(rgb[0], rgb[1], rgb[2]);
+  console.log("newColor", newColor);
+  return newColor;
+};
+
+export const getLightColor = (color: string, level: number) => {
+  if (!isValidColor(color)) return alert("输入错误的hex颜色值");
+  let rgb = hexToRgb(color);
+  for (let i = 0; i < 3; i++)
+    rgb[i] = Math.floor((255 - rgb[i]) * level + rgb[i]);
+  return rgbToHex(rgb[0], rgb[1], rgb[2]);
+};
+
+const buttonSize: {
+  small: CSSProperties;
+  normal: CSSProperties;
+  large: CSSProperties;
+} = {
+  small: {
+    fontSize: "12px",
+    padding: "4px 10px",
+    lineHeight: "20px",
+  },
+  normal: {
+    fontSize: "14px",
+    padding: "4px 14px",
+    lineHeight: "24px",
+    letterSpacing: "1px",
+  },
+  large: {
+    fontSize: "16px",
+    padding: "8px 16px",
+    lineHeight: "20px",
+    letterSpacing: "1px",
+  },
+};
+
+const inputSize: {
+  small: CSSProperties;
+  normal: CSSProperties;
+  large: CSSProperties;
+} = {
+  small: {
+    fontSize: "12px",
+    padding: "4px 10px",
+    paddingRight: 0,
+    lineHeight: "20px",
+  },
+  normal: {
+    fontSize: "14px",
+    padding: "4px 14px",
+    paddingRight: 0,
+    lineHeight: "24px",
+  },
+  large: {
+    fontSize: "16px",
+    padding: "8px 16px",
+    paddingRight: 0,
+    lineHeight: "20px",
+  },
+};
+
+export const generateStyle = (
+  {
+    children,
+    className,
+    style,
+    size,
+    radius,
+    intensity,
+    illuminationAngle,
+    visualHeight,
+    animation,
+    animationDelay,
+    onClick,
+    border,
+    active,
+    type,
+    hover,
+  }: NeuProps,
+  themeColor: string,
+  containerType?: string
+) => {
+  let neuStyle = {
+    "--baseColor": themeColor,
+    "--textColor": calcFontColor(themeColor),
+    "--textColorOpposite": themeColor,
+    "--positionX": visualHeight + "px",
+    "--positionXOpposite": visualHeight * -1 + "px",
+    "--positionY": visualHeight + "px",
+    "--positionYOpposite": visualHeight * -1 + "px",
+    "--blur": visualHeight * 2 + "px",
+    "--radius": radius && radius + "px",
+    "--dark": calcShadowColor(themeColor, (intensity / 100) * -1),
+    "--light": calcShadowColor(themeColor, intensity / 100),
+    "--deeperColor": getDarkColor(themeColor, 1),
+    "--lighterColor": getLightColor(themeColor, 0.2),
+    "--neuDelay": animationDelay || Math.random(),
+    "--borderStyle": border || "1px solid " + calcFontColor(themeColor),
+    ...(animation && { transition: "all 0.309s ease-in-out" }),
+    // "transition-delay": `${animationDelay || Math.random() * 0.5}s`,
+    ...style,
+  } as CSSProperties;
+
+  switch (containerType) {
+    case "button":
+      return {
+        ...neuStyle,
+        ...buttonSize[size],
+      };
+    case "input":
+      return {
+        ...neuStyle,
+        ...inputSize[size],
+      };
+    default:
+      return neuStyle;
+  }
+};
