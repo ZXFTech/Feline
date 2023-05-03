@@ -1,4 +1,13 @@
-import React, { CSSProperties, ReactNode, useMemo } from "react";
+import React, {
+  CSSProperties,
+  ChangeEvent,
+  ChangeEventHandler,
+  HTMLInputTypeAttribute,
+  InputHTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+  useMemo,
+} from "react";
 
 import classNames from "classnames";
 
@@ -27,6 +36,8 @@ export interface NeuProps {
   className?: string;
   // 子组件
   children?: ReactNode;
+  // 值
+  value?: any;
   // 额外的 style 内联样式
   style?: CSSProperties;
   // 大小
@@ -38,7 +49,9 @@ export interface NeuProps {
   // 点击时状态
   active?: neuType;
   // 点击事件
-  onClick?: CallableFunction;
+  onClick?: MouseEventHandler<HTMLInputElement>;
+  // 更改事件
+  onChange?: (value: any, e?: ChangeEvent) => void;
   // 边框圆角半径
   radius?: number;
   // 边框样式
@@ -56,19 +69,24 @@ export interface NeuProps {
   // onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>): void => {};
   // 容器类型
   containerType?: containerType;
+  // Input 的类型
+  inputType?: HTMLInputTypeAttribute;
 }
 
-const NeuContainer = ({
+const NeuInput = ({
   children,
   className,
+  value,
   style,
-  radius,
+  radius = 4,
   intensity = 50,
   illuminationAngle,
-  visualHeight = 10,
+  visualHeight = 2,
   animation,
   animationDelay,
   onClick,
+  onChange,
+  inputType,
   border = "none",
   size = "normal",
   active = undefined,
@@ -78,39 +96,38 @@ const NeuContainer = ({
 }: NeuProps) => {
   const themeColor = useSelector(selectTheme);
 
-  let neuClass = classNames("basic", type, active, hover, className);
-
   return (
-    <div
-      className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
-        active ? "active-" + active : ""
-      } ${className ? className : ""}`}
+    <input
+      type={inputType}
+      className={`basic neu-input sunken ${className}`}
       style={generateStyle(
         {
           children,
           className,
           style,
           radius,
-          intensity: 50,
+          intensity,
           illuminationAngle,
-          visualHeight: 10,
+          visualHeight,
           animation,
           animationDelay,
           onClick,
-          border: "none",
-          size: "normal",
-          active: undefined,
-          type: "common",
-          hover: undefined,
-          containerType: "normal",
+          border,
+          size,
+          active,
+          type,
+          hover,
         },
-        themeColor
+        themeColor,
+        "input"
       )}
       onClick={onClick}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     >
       {children}
-    </div>
+    </input>
   );
 };
 
-export default NeuContainer;
+export default NeuInput;

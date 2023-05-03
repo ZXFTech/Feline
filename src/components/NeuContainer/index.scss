@@ -16,6 +16,8 @@
   --radius: 10px;
   // --dark: black;
   // --light: white;
+  --mt: 10px;
+  --mb: 10px;
 }
 
 // .test-container {
@@ -48,6 +50,25 @@
   color: var(--textColor);
 }
 
+.neu-button {
+  border: none;
+  cursor: pointer;
+  border: var(--borderStyle);
+  transition: none;
+}
+
+.neu-input {
+  outline: none;
+  border: none;
+  transition: none;
+}
+
+.neu-button:hover,
+.neu-input:focus {
+  background-color: var(--lighterColor);
+  transition: none;
+}
+
 // .light {
 //   background-color: $neu-light-theme-color;
 //   color: var(--textColor);
@@ -60,6 +81,7 @@
 }
 
 // 整体
+
 // 突起
 .protuberant,
 .hover-protuberant:hover,
@@ -67,42 +89,46 @@
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
     var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
   margin: $neu-margin;
-  margin-top: 6px;
-  margin-bottom: 14px;
+  margin-top: calc(var(--mt) * 0.6);
+  margin-bottom: calc(var(--mt) * 1.4);
   transition-delay: 0s;
 }
 
 .protuberant.light,
-.hover-protuberant.light:hover {
+.hover-protuberant.light:hover,
+.active-protuberant.light:active {
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
     var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
 }
 
+// 常规
+.common,
+.hover-common:hover,
+.active-common:active {
+  box-shadow: none;
+  margin: $neu-margin;
+  margin-top: calc(var(--mt));
+  margin-bottom: calc(var(--mt));
+}
+
 // 塌陷
 .sunken,
-.hover-sunken:hover {
+.hover-sunken:hover,
+.active-sunken:active {
   box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--dark),
     inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
       var(--light);
   margin: $neu-margin;
-  margin-top: 14px;
-  margin-bottom: 6px;
+  margin-top: calc(var(--mt) * 1.4);
+  margin-bottom: calc(var(--mt) * 0.6);
 }
 
 .sunken.light,
-.hover-sunken.light:hover {
+.hover-sunken.light:hover,
+.active-sunken.light:active {
   box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--dark),
     inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
       var(--light);
-}
-
-// 常规
-.common,
-.hover-common:hover {
-  box-shadow: none;
-  margin: $neu-margin;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 // // hover 平面 凹陷

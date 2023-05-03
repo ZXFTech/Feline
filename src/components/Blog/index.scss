@@ -76,6 +76,38 @@ $neu-padding-left: 12px;
   }
 }
 
+.editor-title-container {
+  .editor-title {
+    margin: 4px;
+    padding: 8px;
+    overflow: hidden;
+    & > input,
+    & > input:focus-visible {
+      display: block;
+      padding: 0;
+      border-radius: 4px;
+      width: 100%;
+      line-height: 40px;
+      border: none;
+      outline: none;
+      background: inherit;
+      color: inherit;
+      font-size: 40px;
+    }
+  }
+}
+
+#editor-container,
+#editor-container * {
+  background-color: inherit;
+  color: inherit;
+}
+
+#editor-container .for-toolbar li:hover {
+  color: var(--themeColor);
+  background-color: var(--oppositeColor);
+}
+
 @media screen and (max-width: 730px) {
   .blog-breviary {
     width: 100%;

@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode, useMemo } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 
 import classNames from "classnames";
 
@@ -20,8 +20,6 @@ export type neuSize = "small" | "normal" | "large" | undefined;
 
 export type neuIlluminationAngle = "lf" | "rt" | "lb" | "rb";
 
-export type containerType = "normal" | "button" | "text" | "input";
-
 export interface NeuProps {
   // 额外的 className
   className?: string;
@@ -38,7 +36,7 @@ export interface NeuProps {
   // 点击时状态
   active?: neuType;
   // 点击事件
-  onClick?: CallableFunction;
+  onClick?: () => void;
   // 边框圆角半径
   radius?: number;
   // 边框样式
@@ -54,63 +52,56 @@ export interface NeuProps {
   // 动画切换延迟时间 不传则为 0 - 0.5s 之间的随机时间
   animationDelay?: number;
   // onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>): void => {};
-  // 容器类型
-  containerType?: containerType;
 }
 
-const NeuContainer = ({
+const NeuButton = ({
   children,
   className,
   style,
-  radius,
-  intensity = 50,
+  size = "normal",
+  radius = 5,
+  intensity = 60,
   illuminationAngle,
-  visualHeight = 10,
+  visualHeight = 2,
   animation,
   animationDelay,
   onClick,
-  border = "none",
-  size = "normal",
+  border,
   active = undefined,
   type = "common",
   hover = undefined,
-  containerType = "normal",
 }: NeuProps) => {
   const themeColor = useSelector(selectTheme);
 
-  let neuClass = classNames("basic", type, active, hover, className);
-
   return (
-    <div
-      className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
-        active ? "active-" + active : ""
-      } ${className ? className : ""}`}
+    <button
+      className={`basic neu-button protuberant active-common ${className}`}
       style={generateStyle(
         {
           children,
           className,
           style,
-          radius,
-          intensity: 50,
+          size: "normal",
+          radius: 5,
+          intensity: 60,
           illuminationAngle,
-          visualHeight: 10,
+          visualHeight: 2,
           animation,
           animationDelay,
           onClick,
-          border: "none",
-          size: "normal",
+          border,
           active: undefined,
           type: "common",
           hover: undefined,
-          containerType: "normal",
         },
-        themeColor
+        themeColor,
+        "button"
       )}
       onClick={onClick}
     >
       {children}
-    </div>
+    </button>
   );
 };
 
-export default NeuContainer;
+export default NeuButton;
