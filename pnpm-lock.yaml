@@ -29,6 +29,7 @@ specifiers:
   cz-customizable: ^7.0.0
   eslint: ^8.23.0
   eslint-plugin-react: ^7.31.5
+  for-editor: ^0.3.5
   husky: ^8.0.1
   jest: ^27.5.1
   koa: ^2.13.4
@@ -59,6 +60,7 @@ dependencies:
   axios: 0.27.2
   classnames: 2.3.2
   commitizen: 4.3.0
+  for-editor: 0.3.5
   koa: 2.14.1
   koa-bodyparser: 4.4.0
   koa-router: 12.0.0
@@ -6063,6 +6065,13 @@ packages:
     dependencies:
       is-callable: 1.2.7
 
+  /for-editor/0.3.5:
+    resolution: {integrity: sha512-yqhn+5do4+i0rgVt87GXnBEJRsC0vJjovQMnT1TsBwz6FUKhECEZdL+QUSGvxc4q71ajGc2zhIpe1YAHFjwegw==}
+    dependencies:
+      highlight.js: 9.18.5
+      marked: 0.6.3
+    dev: false
+
   /fork-ts-checker-webpack-plugin/6.5.3_zrwcvp4iaseq3lri4hm7itiz6a:
     resolution: {integrity: sha512-SbH/l9ikmMWycd5puHJKTkZJKddF4iRLyW3DeZ08HTI7NGyLS38MXd/KGgeWumQO7YNQbW2u/NtPT2YowbPaGQ==}
     engines: {node: '>=10', yarn: '>=1.0.0'}
@@ -6457,6 +6466,12 @@ packages:
 
   /highlight.js/10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
+    dev: false
+
+  /highlight.js/9.18.5:
+    resolution: {integrity: sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==}
+    deprecated: Support has ended for 9.x series. Upgrade to @latest
+    requiresBuild: true
     dev: false
 
   /hoist-non-react-statics/3.3.2:
@@ -8195,6 +8210,12 @@ packages:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
     dev: true
+
+  /marked/0.6.3:
+    resolution: {integrity: sha512-Fqa7eq+UaxfMriqzYLayfqAE40WN03jf+zHjT18/uXNuzjq3TY0XTbrAoPeqSJrAmPz11VuUA+kBPYOhHt9oOQ==}
+    engines: {node: '>=0.10.0'}
+    hasBin: true
+    dev: false
 
   /mdast-util-definitions/5.1.2:
     resolution: {integrity: sha512-8SVPMuHqlPME/z3gqVwWY4zVXn8lqKv/pAhC57FuJ40ImXyBpmO5ukh98zB2v7Blql2FiHjHv9LVztSIqjY+MA==}
