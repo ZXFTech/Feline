@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { FBlog } from "@/types/blogs";
 
-import "./index.css";
-import { useParams } from "react-router-dom";
+import "./index.scss";
+import { useNavigate, useParams } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
 import { getBLogDetail } from "@/api/blogs";
 import ReactMarkdown from "react-markdown";
@@ -13,8 +13,9 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 const Blog = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const [blog, setBlog] = useState(null);
+  const [blog, setBlog] = useState<FBlog>(null);
 
   const [loading, setLoading] = useState(false);
 
@@ -40,6 +41,13 @@ const Blog = () => {
   return (
     <div>
       <div className="toolbar"></div>
+      <button
+        onClick={() => {
+          navigate(`/blog/edit/${id}`, {
+            state: blog,
+          });
+        }}
+      ></button>
       <Loading visible={loading}>
         {blog ? (
           <>

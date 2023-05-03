@@ -6,7 +6,7 @@ import { FBlog } from "@/types/blogs";
 import JSONBlogList from "./blogList.json";
 import Breviary from "./Breviary";
 
-import "./index.css";
+import "./index.scss";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
 
@@ -25,7 +25,7 @@ export const BlogList = () => {
       title: "吃饭",
       content: `
       \`\`\`javascript
-      12300几分钟哦放假哦阿姐大佛\n
+      12300几分钟哦放假哦阿姐大佛\naaa1111111111111
       \`\`\`
       `,
       author: "feline",
@@ -45,8 +45,8 @@ export const BlogList = () => {
     setLoading(true);
     getBlogList(pageNum, pageSize)
       .then((res: any) => {
-        setBlogList(res.data.list);
-        setTotal(res.data.total);
+        setBlogList(res.data || []);
+        setTotal(res.data.total || 0);
       })
       .catch((err) => {
         console.log("err", err);

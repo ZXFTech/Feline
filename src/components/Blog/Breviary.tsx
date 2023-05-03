@@ -1,10 +1,10 @@
 import { FBlog } from "@/types/blogs";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NeuContainer from "../NeuContainer";
 import Tag from "../Tag";
 
-import "./index.css";
+import "./index.scss";
 
 interface Props {
   blog: FBlog;
@@ -13,8 +13,9 @@ interface Props {
 const Breviary = ({
   blog: { title, id, author, gmtCreate, content },
 }: Props) => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    window.location.href = `/blog/detail/${id}`;
+    navigate(`/blog/detail/${id}`);
   };
   return (
     <NeuContainer
