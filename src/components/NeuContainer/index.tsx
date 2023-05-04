@@ -1,4 +1,9 @@
-import React, { CSSProperties, ReactNode, useMemo } from "react";
+import React, {
+  CSSProperties,
+  MouseEventHandler,
+  ReactNode,
+  useMemo,
+} from "react";
 
 import classNames from "classnames";
 
@@ -23,6 +28,8 @@ export type neuIlluminationAngle = "lf" | "rt" | "lb" | "rb";
 export type containerType = "normal" | "button" | "text" | "input";
 
 export interface NeuProps {
+  // id
+  id?: string;
   // 额外的 className
   className?: string;
   // 子组件
@@ -38,7 +45,7 @@ export interface NeuProps {
   // 点击时状态
   active?: neuType;
   // 点击事件
-  onClick?: CallableFunction;
+  onClick?: MouseEventHandler<HTMLElement>;
   // 边框圆角半径
   radius?: number;
   // 边框样式
@@ -59,6 +66,7 @@ export interface NeuProps {
 }
 
 const NeuContainer = ({
+  id,
   children,
   className,
   style,
@@ -82,6 +90,7 @@ const NeuContainer = ({
 
   return (
     <div
+      id={id}
       className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
         active ? "active-" + active : ""
       } ${className ? className : ""}`}
@@ -91,18 +100,18 @@ const NeuContainer = ({
           className,
           style,
           radius,
-          intensity: 50,
+          intensity,
           illuminationAngle,
-          visualHeight: 10,
+          visualHeight,
           animation,
           animationDelay,
           onClick,
-          border: "none",
-          size: "normal",
-          active: undefined,
-          type: "common",
-          hover: undefined,
-          containerType: "normal",
+          border,
+          size,
+          active,
+          type,
+          hover,
+          containerType,
         },
         themeColor
       )}

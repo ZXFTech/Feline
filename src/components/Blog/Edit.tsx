@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 
 import MDEditor from "for-editor";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import NeuContainer from "../NeuContainer";
 import { addBlog, updateBlog } from "@/api/blogs";
 import { uploadImg } from "@/api/file";
@@ -12,11 +12,15 @@ import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import { calcFontColor } from "@/hooks/global";
 import { message } from "antd";
+import NeuInput from "../NeuContainer/NeuInput";
 
 const Edit = () => {
   const location = useLocation();
 
   const themeColor = useSelector(selectTheme);
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
 
   const [title, setTitle] = useState(location.state.title);
   const [content, setContent] = useState(location.state.content || "");
@@ -44,7 +48,6 @@ const Edit = () => {
     const formData = new FormData();
     formData.append("file", files[0], files[0].name);
     const result: unknown = await uploadImg(files);
-    console.log("result", result);
     message.success(result as string);
   };
 
@@ -52,13 +55,26 @@ const Edit = () => {
     setContent(value);
   };
 
+  const onTitleChange = (value: string) => {
+    setTitle(value);
+  };
   const handleEditorSave = (value: string) => {
+    setLoading(true);
     updateBlog({
       ...blog,
       title: title,
       author: "feline",
       content,
-    });
+    })
+      .then((res: any) => {
+        navigate(`/blog/detail/${blog.id}`);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -66,13 +82,13 @@ const Edit = () => {
       <NeuContainer
         type="protuberant"
         visualHeight={2}
-        className="editor-title-container"
+        className="title-container"
       >
-        <NeuContainer type="sunken" visualHeight={2} className="editor-title">
-          <input value={blog.title} />
-        </NeuContainer>
+        <NeuInput value={title} onChange={onTitleChange} className="title" />
       </NeuContainer>
-      <div
+      <NeuContainer
+        type="protuberant"
+        visualHeight={2}
         id="editor-container"
         style={
           {
@@ -91,7 +107,7 @@ const Edit = () => {
           onSave={handleEditorSave}
           addImg={imgUpload}
         />
-      </div>
+      </NeuContainer>
     </NeuContainer>
   );
 };

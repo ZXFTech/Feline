@@ -28,7 +28,7 @@ const LandingPage = () => {
           </NeuContainer>
         </div>
       </NeuContainer>
-      <NeuContainer type="protuberant" className={style.clock}>
+      <NeuContainer type="protuberant" visualHeight={4} className={style.clock}>
         <Clock />
       </NeuContainer>
       {/* 生活 */}
@@ -38,61 +38,36 @@ const LandingPage = () => {
       </NeuContainer> */}
       {/* 导航 */}
       <NeuContainer className={style.navigation}>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
+        <NeuContainer
+          border="1px solid var(--textColor)"
+          visualHeight={5}
+          hover="protuberant"
+          className={style["nav-block"]}
+        >
           文章
         </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
+        <NeuContainer
+          hover="protuberant"
+          border="1px solid var(--textColor)"
+          visualHeight={5}
+          className={style["nav-block"]}
+        >
           分类
         </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
+        <NeuContainer
+          hover="protuberant"
+          border="1px solid var(--textColor)"
+          visualHeight={5}
+          className={style["nav-block"]}
+        >
           时间线
         </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
-          其他
-        </NeuContainer>
-        <NeuContainer hover="protuberant" className={style["nav-block"]}>
+        <NeuContainer
+          hover="protuberant"
+          border="1px solid var(--textColor)"
+          visualHeight={5}
+          className={style["nav-block"]}
+        >
           其他
         </NeuContainer>
       </NeuContainer>

@@ -18,6 +18,8 @@ const Theme = () => {
 
   return (
     <NeuContainer
+      visualHeight={7}
+      intensity={50}
       type="protuberant"
       active="common"
       className={style["theme-button"]}

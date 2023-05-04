@@ -14,10 +14,15 @@ const Navbar = () => {
     navigate(path);
   };
   return (
-    <NeuContainer type="protuberant" className={style["navbar-container"]}>
+    <NeuContainer
+      visualHeight={5}
+      type="protuberant"
+      className={style["navbar-container"]}
+    >
       <div className={style["icon"]}>FELINE</div>
       <div className={style.navbar}>
         <NeuContainer
+          visualHeight={5}
           hover="protuberant"
           className={style.link}
           style={{ "--i": 1 } as CSSProperties}
@@ -28,6 +33,7 @@ const Navbar = () => {
           主页
         </NeuContainer>
         <NeuContainer
+          visualHeight={5}
           hover="protuberant"
           className={style.link}
           style={{ "--i": 2 } as CSSProperties}
@@ -38,6 +44,7 @@ const Navbar = () => {
           博文
         </NeuContainer>
         <NeuContainer
+          visualHeight={5}
           hover="protuberant"
           className={style.link}
           style={{ "--i": 3 } as CSSProperties}
@@ -48,6 +55,7 @@ const Navbar = () => {
           时间线
         </NeuContainer>
         <NeuContainer
+          visualHeight={5}
           hover="protuberant"
           className={style.link}
           style={{ "--i": 4 } as CSSProperties}

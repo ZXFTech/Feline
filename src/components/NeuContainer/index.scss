@@ -48,6 +48,7 @@
   transition-delay: calc(0.5s * var(--neuDelay));
   background-color: var(--baseColor);
   color: var(--textColor);
+  border: var(--borderStyle);
 }
 
 .neu-button {

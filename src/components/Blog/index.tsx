@@ -11,6 +11,7 @@ import Loading from "../Loading";
 import CodeBlock from "../CodeBlock";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import NeuButton from "../NeuContainer/NeuButton";
 const Blog = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -40,18 +41,19 @@ const Blog = () => {
   return (
     <div>
       <div className="toolbar"></div>
-      <button
+      <NeuButton
         onClick={() => {
           navigate(`/blog/edit/${id}`, {
             state: blog,
           });
         }}
-      ></button>
+      >
+        编辑测试
+      </NeuButton>
       <Loading visible={loading}>
         {blog ? (
           <>
             <h1 className="blog-title">{blog.title}</h1>
-
             <div className="blog-info">
               <div className="blog-author">{blog.author}</div>
               <div className="blog-gmtCreate">{blog.gmtCreate}</div>
@@ -62,6 +64,7 @@ const Blog = () => {
               components={{
                 code({ node, inline, className, children, ...props }) {
                   const match = /language-(\w+)/.exec(className || "");
+                  console.log("match", match);
                   return !inline && match ? (
                     <SyntaxHighlighter
                       children={String(children).replace(/\n$/, "")}
