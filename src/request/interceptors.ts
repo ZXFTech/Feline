@@ -6,8 +6,8 @@ interface IConfig {
 }
 
 interface FError {
-  errorNumber: number;
-  errorMessage: string;
+  code: number;
+  message: string;
 }
 
 interface FNormalObj {
@@ -63,8 +63,9 @@ export const handleResponse = (response: AxiosResponse) => {
 
 // 错误处理
 export const handleError = (error: AxiosError) => {
+  const err = error.response.data as FError;
   let errorMessage =
-    errorStatusEnum[error.code] ||
+    `${errorStatusEnum[err.code]} -- ${err.message}` ||
     `其他错误 -- 错误码:${error.code} 错误信息:${error.message}`;
   return Promise.reject(errorMessage);
 };

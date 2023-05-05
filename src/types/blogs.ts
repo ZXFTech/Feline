@@ -1,8 +1,3 @@
-export interface FTag {
-  content: string;
-  color: string;
-}
-
 export interface FBlog {
   id?: number;
   title: string;
@@ -10,4 +5,11 @@ export interface FBlog {
   gmtCreate?: string;
   content: string;
   likes?: number;
+  tags?: FTag[];
+}
+
+export interface FTag {
+  id?: number;
+  name: string;
+  color?: string;
 }
