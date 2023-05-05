@@ -71,6 +71,10 @@ export interface NeuProps {
   containerType?: containerType;
   // Input 的类型
   inputType?: HTMLInputTypeAttribute;
+  // Input 前缀
+  before?: ReactNode;
+  // Input 后缀
+  after?: ReactNode;
 }
 
 const NeuInput = ({
@@ -93,13 +97,14 @@ const NeuInput = ({
   type = "common",
   hover = undefined,
   containerType = "normal",
+  before,
+  after,
 }: NeuProps) => {
   const themeColor = useSelector(selectTheme);
 
   return (
-    <input
-      type={inputType}
-      className={`basic neu-input sunken ${className}`}
+    <div
+      className={`basic neu-input-container sunken ${className}`}
       style={generateStyle(
         {
           children,
@@ -121,12 +126,17 @@ const NeuInput = ({
         themeColor,
         "input"
       )}
-      onClick={onClick}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
     >
-      {children}
-    </input>
+      {before && <div className="neu-input-before">{before}</div>}
+      <input
+        className="neu-input"
+        type={inputType}
+        onClick={onClick}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      {after && <div className="neu-input-before">{after}</div>}
+    </div>
   );
 };
 

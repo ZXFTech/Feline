@@ -85,22 +85,18 @@ const buttonSize: {
   large: CSSProperties;
 } = {
   small: {
-    fontSize: "12px",
-    padding: "4px 10px",
-    lineHeight: "20px",
-  },
+    "--buttonFontSize": "12px",
+    "--buttonPadding": "8px",
+  } as CSSProperties,
   normal: {
-    fontSize: "14px",
-    padding: "4px 14px",
-    lineHeight: "24px",
-    letterSpacing: "1px",
-  },
+    "--buttonFontSize": "15px",
+    "--buttonPadding": "8px",
+  } as CSSProperties,
   large: {
-    fontSize: "16px",
-    padding: "8px 16px",
-    lineHeight: "20px",
-    letterSpacing: "1px",
-  },
+    "--buttonFontSize": "18px",
+    "--buttonPadding": "8px",
+    "--buttonLetterSpacing": "1px",
+  } as CSSProperties,
 };
 
 const inputSize: {
@@ -109,42 +105,35 @@ const inputSize: {
   large: CSSProperties;
 } = {
   small: {
-    fontSize: "12px",
-    padding: "4px 10px",
-    paddingRight: 0,
-    lineHeight: "20px",
-  },
+    "--inputFontSize": "15px",
+    "--inputPadding": "2px 4px",
+    "--inputPaddingRight": 0,
+    "--inputLineHeight": "20px",
+  } as CSSProperties,
   normal: {
-    fontSize: "14px",
-    padding: "4px 14px",
-    paddingRight: 0,
-    lineHeight: "24px",
-  },
+    "--inputFontSize": "18px",
+    "--inputPadding": "2px 4px",
+    "--inputPaddingRight": 0,
+    "--inputLineHeight": "24px",
+  } as CSSProperties,
   large: {
-    fontSize: "16px",
-    padding: "8px 16px",
-    paddingRight: 0,
-    lineHeight: "20px",
-  },
+    "--inputFontSize": "21px",
+    "--inputPadding": "2px 4px",
+    "--inputPaddingRight": 0,
+    "--inputLineHeight": "28px",
+  } as CSSProperties,
 };
 
 export const generateStyle = (
   {
-    children,
-    className,
     style,
     size,
     radius,
     intensity,
-    illuminationAngle,
     visualHeight,
     animation,
     animationDelay,
-    onClick,
     border,
-    active,
-    type,
-    hover,
   }: NeuProps,
   themeColor: string,
   containerType?: string
@@ -162,7 +151,7 @@ export const generateStyle = (
     "--dark": calcShadowColor(themeColor, (intensity / 100) * -1),
     "--light": calcShadowColor(themeColor, intensity / 100),
     "--deeperColor": getDarkColor(themeColor, 1),
-    "--lighterColor": getLightColor(themeColor, 0.2),
+    "--lighterColor": getLightColor(themeColor, 0.4),
     "--neuDelay": animationDelay || Math.random(),
     "--borderStyle": border || "1px solid " + calcFontColor(themeColor),
     ...(animation && { transition: "all 0.309s ease-in-out" }),

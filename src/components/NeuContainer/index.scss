@@ -56,12 +56,46 @@
   cursor: pointer;
   border: var(--borderStyle);
   transition: none;
+  vertical-align: middle;
+  text-align: center;
+  font-size: var(--buttonFontSize);
+  padding: var(--buttonPadding);
+  line-height: var(--buttonLineHeight);
+  letter-spacing: var(--buttonLetterSpacing);
 }
 
-.neu-input {
-  outline: none;
-  border: none;
-  transition: none;
+.neu-input-container,
+.neu-input-before,
+.neu-input-after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neu-input-container {
+  padding: 4px;
+  .neu-input {
+    outline: none;
+    border: none;
+    transition: none;
+    line-height: var(--inputLineHeight);
+    letter-spacing: var(--inputLetterSpacing);
+    background-color: inherit;
+    padding: var(--inputPadding);
+    font-size: var(--inputFontSize);
+  }
+  .neu-input-before,
+  .neu-input-after {
+    & > * {
+      border-right: 1px solid var(--textColor);
+    }
+  }
+  .neu-input-before {
+    padding-right: 2px;
+  }
+  .neu-input-after {
+    padding-left: 2px;
+  }
 }
 
 .neu-button:hover,
