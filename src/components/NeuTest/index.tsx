@@ -7,6 +7,7 @@ import NeuContainer from "../NeuContainer";
 import style from "./index.module.scss";
 import NeuButton from "../NeuContainer/NeuButton";
 import NeuInput from "../NeuContainer/NeuInput";
+import { Input } from "antd";
 
 // type 描述整体突起还是塌陷  突起 | 塌陷 | 平坦(默认)
 // surface 描述表面突起还是塌陷 突起 | 塌陷 | 平坦(默认)
@@ -20,8 +21,53 @@ const NeuTest = ({}) => {
   };
   return (
     <div className={style["test-container"]}>
-      <NeuButton size="large">按钮测试</NeuButton>
-      <NeuInput inputType="number" onChange={onChange} />
+      <NeuButton size="small">按钮测试</NeuButton>
+      <NeuInput
+        size="small"
+        before={"test"}
+        inputType="number"
+        onChange={onChange}
+        after={
+          <>
+            <NeuButton>
+              <i className="fa-solid fa-check"></i>
+            </NeuButton>
+            <NeuButton>
+              <i className="fa-solid fa-xmark"></i>
+            </NeuButton>
+          </>
+        }
+      />
+      <NeuInput before={"test"} inputType="number" onChange={onChange} />
+      <NeuInput
+        size="large"
+        before={"test"}
+        inputType="number"
+        onChange={onChange}
+        after={
+          <>
+            <NeuButton>
+              <i className="fa-solid fa-check"></i>
+            </NeuButton>
+            <NeuButton>
+              <i className="fa-solid fa-xmark"></i>
+            </NeuButton>
+          </>
+        }
+      />
+      <Input
+        status="warning"
+        addonAfter={
+          <>
+            <NeuButton>
+              <i className="fa-solid fa-check"></i>
+            </NeuButton>
+            <NeuButton>
+              <i className="fa-solid fa-xmark"></i>
+            </NeuButton>
+          </>
+        }
+      />
       {/* <NeuContainer type="sunken">
         <div>平面塌陷</div>
       </NeuContainer>

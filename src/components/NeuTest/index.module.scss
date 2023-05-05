@@ -9,20 +9,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  & > div {
-    overflow: hidden;
-    display: block;
-    width: 30%;
-    height: 200px;
-    box-sizing: border-box;
-    border: 1px black solid;
-
-    & > div {
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-  }
 }
 
 // 整体
