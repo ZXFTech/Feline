@@ -52,6 +52,8 @@ export interface NeuProps {
   // 动画切换延迟时间 不传则为 0 - 0.5s 之间的随机时间
   animationDelay?: number;
   // onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>): void => {};
+  // 是否显示 loading 动画
+  loading?: boolean;
 }
 
 const NeuButton = ({
@@ -70,6 +72,7 @@ const NeuButton = ({
   active = undefined,
   type = "common",
   hover = undefined,
+  loading = false,
 }: NeuProps) => {
   const themeColor = useSelector(selectTheme);
 
@@ -81,24 +84,30 @@ const NeuButton = ({
           children,
           className,
           style,
-          size: "normal",
-          radius: 5,
-          intensity: 60,
+          size,
+          radius,
+          intensity,
           illuminationAngle,
-          visualHeight: 2,
+          visualHeight,
           animation,
           animationDelay,
           onClick,
           border,
-          active: undefined,
-          type: "common",
-          hover: undefined,
+          active,
+          type,
+          hover,
         },
         themeColor,
         "button"
       )}
       onClick={onClick}
     >
+      {loading && (
+        <i
+          className="fa-solid fa-circle-notch fa-spin"
+          style={{ marginRight: "4px" }}
+        ></i>
+      )}
       {children}
     </button>
   );

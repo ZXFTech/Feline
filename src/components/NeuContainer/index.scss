@@ -20,29 +20,6 @@
   --mb: 10px;
 }
 
-// .test-container {
-//   padding: 20px;
-//   width: 100%;
-//   height: 1000px;
-//   text-align: center;
-// }
-
-// .standardSize {
-//   padding: 20px;
-//   overflow: hidden;
-//   margin: 10px;
-//   box-sizing: border-box;
-
-//   & > div {
-//     overflow: hidden;
-//     border-radius: 20px;
-//     & > * {
-//       height: 100%;
-//       width: 100%;
-//     }
-//   }
-// }
-
 .basic {
   transition: background-color 0.309s ease-in-out, color 0.309s ease-in-out;
   transition-delay: calc(0.5s * var(--neuDelay));
@@ -62,6 +39,13 @@
   padding: var(--buttonPadding);
   line-height: var(--buttonLineHeight);
   letter-spacing: var(--buttonLetterSpacing);
+
+  // 暂时不加了 先用 fa 自带的动画
+  // .loading-icon {
+  //   text-align: center;
+  //   width: auto;
+  //   animation: spin 1s infinite linear;
+  // }
 }
 
 .neu-input-container,
@@ -70,11 +54,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  word-break: keep-all;
 }
 
 .neu-input-container {
-  padding: 4px;
+  padding: calc(var(--blur) + 2px);
+  width: 300px;
   .neu-input {
+    width: 100%;
     outline: none;
     border: none;
     transition: none;
@@ -211,3 +198,8 @@
 // .active-common:active {
 //   @include common;
 // }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
