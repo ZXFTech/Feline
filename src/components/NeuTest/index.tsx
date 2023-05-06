@@ -8,6 +8,7 @@ import style from "./index.module.scss";
 import NeuButton from "../NeuContainer/NeuButton";
 import NeuInput from "../NeuContainer/NeuInput";
 import { Input } from "antd";
+import Login from "../Login";
 
 // type 描述整体突起还是塌陷  突起 | 塌陷 | 平坦(默认)
 // surface 描述表面突起还是塌陷 突起 | 塌陷 | 平坦(默认)
@@ -68,6 +69,7 @@ const NeuTest = ({}) => {
           </>
         }
       />
+      <Login />
       {/* <NeuContainer type="sunken">
         <div>平面塌陷</div>
       </NeuContainer>
