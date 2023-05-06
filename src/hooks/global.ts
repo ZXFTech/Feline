@@ -153,7 +153,11 @@ export const generateStyle = (
     "--deeperColor": getDarkColor(themeColor, 1),
     "--lighterColor": getLightColor(themeColor, 0.4),
     "--neuDelay": animationDelay || Math.random(),
-    "--borderStyle": border || "1px solid " + calcFontColor(themeColor),
+    "--borderStyle":
+      typeof border === "string"
+        ? border
+        : border && "1px solid " + getDarkColor(themeColor, 1),
+    // : border && "1px solid " + getDarkColor(themeColor, 0.2),
     ...(animation && { transition: "all 0.309s ease-in-out" }),
     // "transition-delay": `${animationDelay || Math.random() * 0.5}s`,
     ...style,

@@ -26,6 +26,7 @@
   background-color: var(--baseColor);
   color: var(--textColor);
   border: var(--borderStyle);
+  box-sizing: border-box;
 }
 
 .neu-button {

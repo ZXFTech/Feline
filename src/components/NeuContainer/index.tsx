@@ -49,7 +49,7 @@ export interface NeuProps {
   // 边框圆角半径
   radius?: number;
   // 边框样式
-  border?: string;
+  border?: string | boolean;
   // 光照亮度 1 - 100
   intensity?: number;
   // 光照角度
@@ -77,7 +77,7 @@ const NeuContainer = ({
   animation,
   animationDelay,
   onClick,
-  border = "none",
+  border = false,
   size = "normal",
   active = undefined,
   type = "common",

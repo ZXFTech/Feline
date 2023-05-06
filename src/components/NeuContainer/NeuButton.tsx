@@ -40,7 +40,7 @@ export interface NeuProps {
   // 边框圆角半径
   radius?: number;
   // 边框样式
-  border?: string;
+  border?: string | boolean;
   // 光照亮度 1 - 100
   intensity?: number;
   // 光照角度
@@ -68,7 +68,7 @@ const NeuButton = ({
   animation,
   animationDelay,
   onClick,
-  border,
+  border = false,
   active = undefined,
   type = "common",
   hover = undefined,
