@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 
 import MDEditor from "for-editor";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ import { selectTheme } from "@/redux/theme/themeSlice";
 import { calcFontColor } from "@/hooks/global";
 import { message } from "antd";
 import NeuInput from "../NeuContainer/NeuInput";
+import Tag from "../Tag";
 
 const Edit = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const Edit = () => {
   const [loading, setLoading] = useState(false);
 
   const [title, setTitle] = useState(location.state.title);
+  const [tags, setTags] = useState(location.state.tags || []);
   const [content, setContent] = useState(location.state.content || "");
   const [originContent, setOriginContent] = useState(location.state || "");
   const [blog, setBlog] = useState<FBlog>(location.state);
@@ -64,6 +66,7 @@ const Edit = () => {
       ...blog,
       title: title,
       author: "feline",
+      tags,
       content,
     })
       .then((res: any) => {
@@ -86,6 +89,7 @@ const Edit = () => {
       >
         <NeuInput value={title} onChange={onTitleChange} className="title" />
       </NeuContainer>
+      <Tag tags={tags} setTags={setTags} />
       <NeuContainer
         type="protuberant"
         visualHeight={2}

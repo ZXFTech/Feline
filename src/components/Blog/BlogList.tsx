@@ -30,9 +30,10 @@ export const BlogList = () => {
       `,
       author: "feline",
       tags: [
-        { id: 1, name: "react" },
-        { id: 2, name: "cat" },
-        { id: 3, name: "food" },
+        { name: "react" },
+        { name: "cat" },
+        { name: "food" },
+        { name: "test" },
       ],
       likes: 10,
     };
