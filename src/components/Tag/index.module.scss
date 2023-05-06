@@ -1,0 +1,35 @@
+@import "../../../styles/variables.scss";
+
+.tag-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  .tag {
+    display: inline-block;
+    vertical-align: text-bottom;
+    font-size: 14px;
+    padding: 4px 14px;
+    margin: 0 10px 0 0;
+    box-shadow: 4px 4px 4px $neu-dark-color, 0-4px 0-4px 4px $neu-light-color;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .add-button,
+  .tag-input-button {
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    font-weight: 100;
+  }
+
+  .tag-input {
+    .tag-input-button {
+      margin: 0;
+      margin-right: 6px;
+    }
+  }
+}
