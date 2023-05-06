@@ -7,7 +7,7 @@ import React, {
 
 import classNames from "classnames";
 
-import "./index.scss";
+import styles from "./index.module.scss";
 import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import {
@@ -44,6 +44,8 @@ export interface NeuProps {
   hover?: neuType;
   // 点击时状态
   active?: neuType;
+  // width
+  width?: number;
   // 点击事件
   onClick?: MouseEventHandler<HTMLElement>;
   // 边框圆角半径
@@ -91,9 +93,9 @@ const NeuContainer = ({
   return (
     <div
       id={id}
-      className={`basic ${type} ${hover ? "hover-" + hover : ""} ${
-        active ? "active-" + active : ""
-      } ${className ? className : ""}`}
+      className={`${styles.basic} ${styles[type]} ${
+        hover ? styles["hover-" + hover] : ""
+      } ${active ? styles["active-" + active] : ""} ${className}`}
       style={generateStyle(
         {
           children,

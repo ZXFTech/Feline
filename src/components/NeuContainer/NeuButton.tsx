@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactNode } from "react";
 
 import classNames from "classnames";
 
-import "./index.scss";
+import styles from "./index.module.scss";
 import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import {
@@ -78,7 +78,7 @@ const NeuButton = ({
 
   return (
     <button
-      className={`basic neu-button protuberant active-common ${className}`}
+      className={`${styles["basic"]} ${styles["neu-button"]} ${styles["protuberant"]} ${styles["active-common"]} ${className}`}
       style={generateStyle(
         {
           children,

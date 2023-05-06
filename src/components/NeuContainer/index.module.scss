@@ -59,8 +59,9 @@
 }
 
 .neu-input-container {
-  padding: calc(var(--blur) + 2px);
-  width: 300px;
+  padding: calc(var(--blur) + 2px) calc(var(--blur) + 6px);
+  // padding-left: calc(var(--blur) + 6px);
+  // padding-right: calc(var(--blur) + 6px);
   .neu-input {
     width: 100%;
     outline: none;
@@ -71,6 +72,7 @@
     background-color: inherit;
     padding: var(--inputPadding);
     font-size: var(--inputFontSize);
+    // width: var(--width);
   }
   .neu-input-before,
   .neu-input-after {

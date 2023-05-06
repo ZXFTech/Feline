@@ -9,9 +9,7 @@ import React, {
   useMemo,
 } from "react";
 
-import classNames from "classnames";
-
-import "./index.scss";
+import styles from "./index.module.scss";
 import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import {
@@ -52,6 +50,8 @@ export interface NeuProps {
   onClick?: MouseEventHandler<HTMLInputElement>;
   // 更改事件
   onChange?: (value: any, e?: ChangeEvent) => void;
+  // 指定宽度
+  width?: number;
   // 边框圆角半径
   radius?: number;
   // 边框样式
@@ -83,6 +83,7 @@ const NeuInput = ({
   value,
   style,
   radius = 4,
+  width = 200,
   intensity = 50,
   illuminationAngle,
   visualHeight = 2,
@@ -96,7 +97,6 @@ const NeuInput = ({
   active = undefined,
   type = "common",
   hover = undefined,
-  containerType = "normal",
   before,
   after,
 }: NeuProps) => {
@@ -104,7 +104,7 @@ const NeuInput = ({
 
   return (
     <div
-      className={`basic neu-input-container sunken ${className}`}
+      className={`${styles["basic"]} ${styles["neu-input-container"]} ${styles["sunken"]} ${className}`}
       style={generateStyle(
         {
           children,
@@ -122,20 +122,21 @@ const NeuInput = ({
           active,
           type,
           hover,
+          width,
         },
         themeColor,
         "input"
       )}
     >
-      {before && <div className="neu-input-before">{before}</div>}
+      {before && <div className={styles["neu-input-before"]}>{before}</div>}
       <input
-        className="neu-input"
+        className={styles["neu-input"]}
         type={inputType}
         onClick={onClick}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      {after && <div className="neu-input-before">{after}</div>}
+      {after && <div className={styles["neu-input-before"]}>{after}</div>}
     </div>
   );
 };
