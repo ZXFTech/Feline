@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { addBlog, getBlogList } from "@/api/blogs";
+import { addBlog, getBlogList } from "@/api/blog";
 import { FBlog } from "@/types/blogs";
 
 import JSONBlogList from "./blogList.json";
@@ -28,7 +28,6 @@ export const BlogList = () => {
       12300几分钟哦放假哦阿姐大佛\naaa1111111111111
       \`\`\`
       `,
-      author: "feline",
       tags: [
         { name: "react" },
         { name: "cat" },

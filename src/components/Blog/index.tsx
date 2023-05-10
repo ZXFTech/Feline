@@ -5,7 +5,7 @@ import { FBlog } from "@/types/blogs";
 import "./index.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
-import { getBLogDetail } from "@/api/blogs";
+import { getBLogDetail } from "@/api/blog";
 import ReactMarkdown from "react-markdown";
 import Loading from "../Loading";
 import CodeBlock from "../CodeBlock";

@@ -3,7 +3,7 @@ import React, { CSSProperties, useEffect, useState } from "react";
 import MDEditor from "for-editor";
 import { useLocation, useNavigate } from "react-router-dom";
 import NeuContainer from "../NeuContainer";
-import { addBlog, updateBlog } from "@/api/blogs";
+import { addBlog, updateBlog } from "@/api/blog";
 import { uploadImg } from "@/api/file";
 import { FBlog } from "@/types/blogs";
 
