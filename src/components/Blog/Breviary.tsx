@@ -22,6 +22,7 @@ const Breviary = ({
       type="common"
       hover="protuberant"
       className="blog-breviary"
+      visualHeight={5}
       onClick={handleClick}
     >
       <h2 className="breviary-title">{title}</h2>

@@ -65,7 +65,6 @@ const Edit = () => {
     updateBlog({
       ...blog,
       title: title,
-      author: "feline",
       tags,
       content,
     })

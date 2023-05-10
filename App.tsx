@@ -17,6 +17,7 @@ import ErrorPage from "@/components/ErrorPage";
 import Index from "@/page/Index";
 import LandingPage from "@/page/LandingPage";
 import Edit from "@/components/Blog/Edit";
+import Login from "@/components/Login";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "neu/test",
         element: <NeuTest />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

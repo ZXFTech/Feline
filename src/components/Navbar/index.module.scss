@@ -3,36 +3,38 @@
 .navbar-container {
   z-index: 9999;
   position: fixed;
-  top: -10px;
-  left: 0;
-  right: 0;
-  padding: 0 20px;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  display: block;
+  top: 10px;
+  width: 100%;
 
-  margin: 0g;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+  & > * {
+    margin: 0;
+  }
 
   .icon {
-    font-size: 42px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    float: left;
+    font-size: 38px;
     letter-spacing: 2px;
     font-weight: bold;
+    padding: 10px;
+    margin-left: 16px;
   }
 
   .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-
+    max-width: 1000px;
+    width: 50%;
+    margin: auto;
+    min-width: 380px;
     .link {
       font-weight: 700;
       font-size: 16px;
-      margin-right: 16px;
       cursor: pointer;
       padding: 10px 20px;
       animation: upAndDown 0.8s ease-in;
@@ -46,21 +48,30 @@
       }
     }
   }
+
+  .functional-part {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & > * {
+      margin-right: 16px;
+    }
+  }
 }
 
 @keyframes upAndDown {
   0% {
     @include common;
-    margin-right: 16px;
   }
 
   50% {
     @include protuberant;
-    margin-right: 16px;
   }
 
   100% {
     @include common;
-    margin-right: 16px;
   }
 }

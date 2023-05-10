@@ -4,6 +4,7 @@ import Theme from "../Theme";
 import style from "./index.module.scss";
 import NeuContainer from "../NeuContainer";
 import { Link, useNavigate } from "react-router-dom";
+import NeuButton from "../NeuContainer/NeuButton";
 
 // 左侧 图标加名称
 // 右侧 导航栏
@@ -14,13 +15,25 @@ const Navbar = () => {
     navigate(path);
   };
   return (
-    <NeuContainer
-      visualHeight={5}
-      type="protuberant"
-      className={style["navbar-container"]}
-    >
-      <div className={style["icon"]}>FELINE</div>
-      <div className={style.navbar}>
+    <div className={style["navbar-container"]}>
+      <NeuContainer
+        type="protuberant"
+        visualHeight={5}
+        className={style["icon"]}
+      >
+        <div>FELINE</div>
+      </NeuContainer>
+      <div className={style["functional-part"]}>
+        <NeuButton visualHeight={5} onClick={() => goTo("/login")}>
+          注册/登录
+        </NeuButton>
+        <Theme />
+      </div>
+      <NeuContainer
+        visualHeight={5}
+        type="protuberant"
+        className={style.navbar}
+      >
         <NeuContainer
           visualHeight={5}
           hover="protuberant"
@@ -65,9 +78,8 @@ const Navbar = () => {
         >
           分类
         </NeuContainer>
-        <Theme />
-      </div>
-    </NeuContainer>
+      </NeuContainer>
+    </div>
   );
 };
 

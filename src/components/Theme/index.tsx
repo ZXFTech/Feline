@@ -18,7 +18,7 @@ const Theme = () => {
 
   return (
     <NeuContainer
-      visualHeight={7}
+      visualHeight={5}
       intensity={50}
       type="protuberant"
       active="common"

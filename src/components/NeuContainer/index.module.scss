@@ -113,7 +113,6 @@
 .active-protuberant:active {
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--dark),
     var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--light);
-  margin: $neu-margin;
   margin-top: calc(var(--mt) * 0.6);
   margin-bottom: calc(var(--mt) * 1.4);
   transition-delay: 0s;
@@ -131,7 +130,7 @@
 .hover-common:hover,
 .active-common:active {
   box-shadow: none;
-  margin: $neu-margin;
+  // margin: $neu-margin;
   margin-top: calc(var(--mt));
   margin-bottom: calc(var(--mt));
 }
@@ -143,7 +142,7 @@
   box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--dark),
     inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
       var(--light);
-  margin: $neu-margin;
+  // margin: $neu-margin;
   margin-top: calc(var(--mt) * 1.4);
   margin-bottom: calc(var(--mt) * 0.6);
 }

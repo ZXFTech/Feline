@@ -1,5 +1,58 @@
 .login-container {
-  width: 40%;
   min-width: 400px;
+  height: 800px;
   padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-window {
+    width: 520px;
+    overflow: hidden;
+    position: relative;
+    height: 340px;
+    .login {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      width: 1040px;
+      transition: all 0.618s ease-in-out;
+      .image {
+        flex-grow: 0;
+        margin: 20px;
+        width: 180px;
+        overflow: hidden;
+        position: relative;
+        height: 300px;
+
+        .zheng {
+          transform: rotate(180deg);
+          width: 220%;
+          position: absolute;
+          left: -47px;
+          top: 15px;
+        }
+
+        .tang {
+          width: 190%;
+          position: absolute;
+          left: -47px;
+          top: -29px;
+        }
+      }
+      .input {
+        flex-grow: 0;
+        width: 300px;
+        padding: 20px;
+      }
+    }
+
+    .register {
+      left: -520px;
+      transition: all 0.618s ease-in-out;
+    }
+  }
 }
