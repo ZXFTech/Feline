@@ -1,7 +1,7 @@
 export interface FBlog {
   id?: number;
   title: string;
-  author: string;
+  author?: number;
   gmtCreate?: string;
   content: string;
   likes?: number;

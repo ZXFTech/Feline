@@ -9,19 +9,19 @@ import NeuButton from "../NeuContainer/NeuButton";
 import NeuInput from "../NeuContainer/NeuInput";
 import { Input } from "antd";
 import Login from "../Login";
+import Loading from "../Loading";
 
 // type 描述整体突起还是塌陷  突起 | 塌陷 | 平坦(默认)
 // surface 描述表面突起还是塌陷 突起 | 塌陷 | 平坦(默认)
 // hover 鼠标移动到元素时的表现 突起 | 塌陷 | 表面突起 | 表面塌陷 | 无(默认)
 
 const NeuTest = ({}) => {
-  const [text, setText] = useState("second");
-
   const onChange = (value) => {
     console.log("value", value);
   };
   return (
     <div className={style["test-container"]}>
+      <Loading visible={true}></Loading>
       <NeuButton size="small">按钮测试</NeuButton>
       <NeuInput
         size="small"

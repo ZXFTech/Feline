@@ -21,3 +21,10 @@ export const urlUpdateBlog = "/blog/update";
  * @description 上传图片
  */
 export const urlUploadImg = "/file/img";
+
+// user
+const USER_PREFIX = "/user";
+// 注册
+export const urlRegister = `${USER_PREFIX}/register`;
+// 登录
+export const urlLogin = `${USER_PREFIX}/login`;

@@ -1,6 +1,11 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-import { handleError, handleResponse } from "./interceptors";
+import {
+  handleAuth,
+  handleError,
+  handleResponse,
+  handleResponseToken,
+} from "./interceptors";
 
 const felineApi = axios.create({
   baseURL: "http://localhost:9000/api",
@@ -13,7 +18,10 @@ felineApi.interceptors.request.use((config: AxiosRequestConfig) => {
   return config;
 });
 
+felineApi.interceptors.request.use(handleAuth);
+
 felineApi.interceptors.response.use(handleResponse, handleError);
+felineApi.interceptors.response.use(handleResponseToken);
 
 // get 封装
 export const get = (url: string, params: any) => {
@@ -25,7 +33,7 @@ export const get = (url: string, params: any) => {
 // post 封装
 export const post = (url: string, data: any) => {
   return felineApi.post(url, {
-    data,
+    ...data,
   });
 };
 

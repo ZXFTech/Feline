@@ -78,7 +78,10 @@ const NeuButton = ({
 
   return (
     <button
-      className={`${styles["basic"]} ${styles["neu-button"]} ${styles["protuberant"]} ${styles["active-common"]} ${className}`}
+      disabled={loading}
+      className={`${styles["basic"]} ${styles["neu-button"]} ${
+        styles["protuberant"]
+      } ${!loading && styles["active-common"]} ${className}`}
       style={generateStyle(
         {
           children,

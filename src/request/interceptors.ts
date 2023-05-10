@@ -1,8 +1,15 @@
 import { message } from "antd";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 interface IConfig {
   [key: string]: any;
+}
+
+interface FResponse {
+  code: number;
+  message: string;
+  data: any;
+  token?: string;
 }
 
 interface FError {
@@ -48,9 +55,19 @@ export const handleRequestHeader = (config: IConfig) => {
 };
 
 // 鉴权处理
-export const handleAuth = (config: IConfig) => {
-  config.header["token"] = localStorage.getItem("token") || "";
+export const handleAuth = (config: AxiosRequestConfig) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers["token"] = localStorage.getItem("token") || "";
+  }
   return config;
+};
+
+export const handleResponseToken = (res: AxiosResponse) => {
+  if (res.data?.token) {
+    localStorage.setItem("token", res.data.token);
+  }
+  return res;
 };
 
 // 相应处理
