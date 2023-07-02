@@ -6,7 +6,7 @@ import { changeTheme, selectTheme } from "@/redux/theme/themeSlice";
 
 import style from "./index.module.scss";
 import NeuContainer from "../NeuContainer";
-import { useTheme } from "@/hooks/global";
+import { useTheme } from "@/utils/global";
 
 // const DEFAULT_DARK_COLOR = "#153C46";
 const DEFAULT_DARK_COLOR = "#2C2F3B";

@@ -17,7 +17,7 @@ import {
   calcShadowColor,
   generateStyle,
   useTheme,
-} from "@/hooks/global";
+} from "@/utils/global";
 
 export type neuType = "sunken" | "common" | "protuberant" | undefined;
 

@@ -1,11 +1,11 @@
 @import "../../../styles/variables.scss";
 
 .navbar-container {
+  width: 100%;
   z-index: 9999;
   position: fixed;
   display: block;
-  top: 10px;
-  width: 100%;
+  top: 15px;
 
   & > * {
     margin: 0;
@@ -32,6 +32,7 @@
     width: 50%;
     margin: auto;
     min-width: 380px;
+    max-width: min-content;
     .link {
       font-weight: 700;
       font-size: 16px;
@@ -73,5 +74,24 @@
 
   100% {
     @include common;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-container {
+    bottom: 0;
+    top: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navbar-container {
+    .icon {
+      display: none;
+    }
+
+    .functional-part {
+      display: none;
+    }
   }
 }

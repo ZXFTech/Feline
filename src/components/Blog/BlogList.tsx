@@ -23,11 +23,8 @@ export const BlogList = () => {
   const onBlogUpload = () => {
     const blog = {
       title: "吃饭",
-      content: `
-      \`\`\`javascript
-      12300几分钟哦放假哦阿姐大佛\naaa1111111111111
-      \`\`\`
-      `,
+      content:
+        '```javascript\ntags: [\n{ name: "react" },\n{ name: "cat" }\n```',
       tags: [
         { name: "react" },
         { name: "cat" },
@@ -79,10 +76,6 @@ export const BlogList = () => {
           )}
         </div>
       </Loading>
-
-      <div>
-        <Pagination />
-      </div>
     </div>
   );
 };

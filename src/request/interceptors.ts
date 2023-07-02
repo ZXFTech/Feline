@@ -1,5 +1,6 @@
 import { message } from "antd";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface IConfig {
   [key: string]: any;
@@ -80,7 +81,8 @@ export const handleResponse = (response: AxiosResponse) => {
 
 // 错误处理
 export const handleError = (error: AxiosError) => {
-  const err = error.response.data as FError;
+  const err = error.response?.data as FError;
+
   let errorMessage =
     `${errorStatusEnum[err.code]} -- ${err.message}` ||
     `其他错误 -- 错误码:${error.code} 错误信息:${error.message}`;

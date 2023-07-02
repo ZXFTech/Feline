@@ -10,7 +10,7 @@ import { FBlog } from "@/types/blogs";
 import "./index.scss";
 import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/theme/themeSlice";
-import { calcFontColor } from "@/hooks/global";
+import { calcFontColor } from "@/utils/global";
 import { message } from "antd";
 import NeuInput from "../NeuContainer/NeuInput";
 import Tag from "../Tag";

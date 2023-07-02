@@ -1,58 +1,85 @@
 .login-container {
   min-width: 400px;
-  height: 800px;
-  padding: 20px;
-
+  height: 80vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   .login-window {
-    width: 520px;
+    width: 400px;
     overflow: hidden;
     position: relative;
-    height: 340px;
-    .login {
-      position: absolute;
-      left: 0;
-      top: 0;
+    margin: auto;
+    .register {
+      padding: 20px;
       display: flex;
-      flex-direction: row;
-      width: 1040px;
-      transition: all 0.618s ease-in-out;
-      .image {
-        flex-grow: 0;
-        margin: 20px;
-        width: 180px;
-        overflow: hidden;
-        position: relative;
-        height: 300px;
+      flex-direction: column;
+      transition: all 0.5s ease;
 
-        .zheng {
-          transform: rotate(180deg);
-          width: 220%;
-          position: absolute;
-          left: -47px;
-          top: 15px;
-        }
-
-        .tang {
-          width: 190%;
-          position: absolute;
-          left: -47px;
-          top: -29px;
-        }
+      .appear {
+        visibility: visible;
+        // animation: disappear 1s ease;
+        transition: color 0.618s, box-shadow 0.618s;
       }
-      .input {
-        flex-grow: 0;
-        width: 300px;
-        padding: 20px;
+      .disappear {
+        box-shadow: none;
+        color: rgba($color: #000000, $alpha: 0);
+        visibility: hidden;
+        // animation: appear 1s ease reverse;
+        transition: all 0s 1s, color 0.618s, box-shadow 0.618s;
+      }
+
+      .hide {
+        display: none;
       }
     }
 
-    .register {
-      left: -520px;
-      transition: all 0.618s ease-in-out;
+    .buttons {
+      width: 100%;
+      text-align: center;
+      & > * {
+        display: block;
+        width: 50%;
+        margin: auto;
+      }
+
+      .welcome {
+        font-size: 14px;
+        width: 100%;
+        margin: 12px auto;
+
+        span {
+          cursor: pointer;
+          color: blue;
+        }
+      }
+
+      .hide {
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        box-shadow: none;
+        color: rgba($color: #000000, $alpha: 0);
+        border: none;
+      }
     }
   }
 }
+
+@keyframes disappear {
+  0% {
+  }
+  100% {
+    color: rgba($color: #000000, $alpha: 0);
+    box-shadow: none;
+  }
+}
+
+// @keyframes appear {
+//   0% {
+//   }
+//   100% {
+//     color: rgba($color: #000000, $alpha: 0);
+//     box-shadow: none;
+//   }
+// }

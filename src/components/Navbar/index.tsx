@@ -5,10 +5,15 @@ import style from "./index.module.scss";
 import NeuContainer from "../NeuContainer";
 import { Link, useNavigate } from "react-router-dom";
 import NeuButton from "../NeuContainer/NeuButton";
+import { getCache } from "@/utils/browser";
+import { USERINFO } from "@/utils/variebles";
+import UserInfo from "../UserInfo.tsx";
+import Avatar from "../Avatar";
 
 // 左侧 图标加名称
 // 右侧 导航栏
 const Navbar = () => {
+  const user = getCache(USERINFO);
   const navigate = useNavigate();
 
   const goTo = (path: string) => {
@@ -24,9 +29,7 @@ const Navbar = () => {
         <div>FELINE</div>
       </NeuContainer>
       <div className={style["functional-part"]}>
-        <NeuButton visualHeight={5} onClick={() => goTo("/login")}>
-          注册/登录
-        </NeuButton>
+        {/* <Avatar userInfo={user} /> */}
         <Theme />
       </div>
       <NeuContainer

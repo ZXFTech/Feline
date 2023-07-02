@@ -7,6 +7,7 @@ interface Props {
   typingCompleteSpace?: number;
   className?: string;
   style?: CSSProperties;
+  loop?: boolean;
 }
 
 const Typewriter = ({
@@ -15,6 +16,7 @@ const Typewriter = ({
   content,
   typingSpace = 100,
   typingCompleteSpace = 1000,
+  loop = false,
 }: Props) => {
   const [copyString, setCopyString] = useState("");
   const [isAdd, setIsAdd] = useState(true);

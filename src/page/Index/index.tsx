@@ -17,8 +17,8 @@ import LandingPage from "@/page/LandingPage";
 import Navbar from "@/components/Navbar";
 import { selectTheme } from "@/redux/theme/themeSlice";
 import { useSelector } from "react-redux";
-import { calcFontColor, useTheme } from "@/hooks/global";
-import ErrorPage from "@/components/ErrorPage";
+import { calcFontColor, useTheme } from "@/utils/global";
+import { UserList } from "../UserList";
 
 function Index() {
   const themeColor = useSelector(selectTheme);
@@ -27,7 +27,10 @@ function Index() {
       className={style.basic}
       style={{ background: themeColor, color: calcFontColor(themeColor) }}
     >
+      {/* <div className={style.navbar}> */}
       <Navbar />
+      {/* </div> */}
+
       <div className={style["main-container"]}>
         <div className={style["left-bar"]}>
           <NeuContainer type="protuberant">
@@ -42,6 +45,7 @@ function Index() {
         </div>
         <div className={style["content-bar"]}>
           <NeuContainer type="common">
+            {/* <UserList /> */}
             <Outlet />
           </NeuContainer>
         </div>
