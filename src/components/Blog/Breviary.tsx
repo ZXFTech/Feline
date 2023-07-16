@@ -7,18 +7,18 @@ import Tag from "../Tag";
 import "./index.scss";
 
 interface Props {
-  blog: FBlog;
+  // blog: FBlog;
+  title: string;
 }
 
-const Breviary = ({
-  blog: { title, id, author, gmtCreate, content },
-}: Props) => {
+const Breviary = ({ title }: Props) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/blog/detail/${id}`);
+    navigate(`/blog/detail/${title}`);
   };
   return (
     <NeuContainer
+      border
       type="common"
       hover="protuberant"
       className="blog-breviary"
@@ -26,10 +26,10 @@ const Breviary = ({
       onClick={handleClick}
     >
       <h2 className="breviary-title">{title}</h2>
-      <div className="breviary-author-date">
+      {/* <div className="breviary-author-date">
         <span className="breviary-author">{author}</span>
         <span className="breviary-date">{gmtCreate}</span>
-      </div>
+      </div> */}
       {/* <div className="breviary-tags">
         {tags.map((tag) => (
           <Tag key={tag.content} color={tag.color}>
@@ -37,7 +37,7 @@ const Breviary = ({
           </Tag>
         ))}
       </div> */}
-      <div className="breviary-content">{content.slice(0, 200)}</div>
+      {/* <div className="breviary-content">{content.slice(0, 200)}</div> */}
     </NeuContainer>
   );
 };

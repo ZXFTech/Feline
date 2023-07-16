@@ -12,6 +12,9 @@ import CodeBlock from "../CodeBlock";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import NeuButton from "../NeuContainer/NeuButton";
+
+import { getMarkdown } from "@/utils/markdown";
+
 const Blog = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -25,9 +28,10 @@ const Blog = () => {
   useEffect(() => {
     setLoading(true);
 
-    getBLogDetail(id)
+    getMarkdown("/markdown/" + id + ".md")
       .then((res) => {
-        setBlog(res.data);
+        console.log("res", res.data);
+        setBlog({ content: res.data } as any);
       })
       .catch((err) => {
         console.log("err", err);
@@ -40,16 +44,27 @@ const Blog = () => {
 
   return (
     <div>
-      <div className="toolbar"></div>
-      <NeuButton
-        onClick={() => {
-          navigate(`/blog/edit/${id}`, {
-            state: blog,
-          });
-        }}
-      >
-        编辑测试
-      </NeuButton>
+      <div className="toolbar">
+        <NeuButton
+          onClick={() => {
+            navigate(`/blog/edit/${id}`, {
+              state: blog,
+            });
+          }}
+        >
+          编辑测试
+        </NeuButton>
+        <NeuButton
+          onClick={() => {
+            navigate(`/blog/list`, {
+              state: blog,
+            });
+          }}
+        >
+          返回
+        </NeuButton>
+      </div>
+
       <Loading visible={loading}>
         {blog ? (
           <>
@@ -60,6 +75,7 @@ const Blog = () => {
               <div className="blog-likes">{blog.likes}</div>
             </div>
             <ReactMarkdown
+              className="blog-content"
               children={blog.content}
               components={{
                 code({ node, inline, className, children, ...props }) {

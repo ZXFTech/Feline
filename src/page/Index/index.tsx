@@ -32,7 +32,7 @@ function Index() {
       {/* </div> */}
 
       <div className={style["main-container"]}>
-        <div className={style["left-bar"]}>
+        {/* <div className={style["left-bar"]}>
           <NeuContainer type="protuberant">
             <Constructing />
           </NeuContainer>
@@ -42,7 +42,7 @@ function Index() {
           <NeuContainer type="protuberant">
             <Constructing />
           </NeuContainer>
-        </div>
+        </div> */}
         <div className={style["content-bar"]}>
           <NeuContainer type="common">
             {/* <UserList /> */}

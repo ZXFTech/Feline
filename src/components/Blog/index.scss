@@ -26,7 +26,7 @@ $neu-padding-left: 12px;
   padding: 0 12px;
   font-size: 16px;
   line-height: 30px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 // 博客列表
@@ -40,6 +40,7 @@ $neu-padding-left: 12px;
 }
 
 .blog-breviary {
+  width: 100%;
   padding: 12px 0;
   border: 1px rgba(168, 168, 168, 0.3) solid;
   margin: 10px;
@@ -50,7 +51,7 @@ $neu-padding-left: 12px;
   }
 
   .breviary-title {
-    letter-spacing: 5px;
+    letter-spacing: 1px;
   }
 
   .breviary-author-date {
@@ -68,8 +69,8 @@ $neu-padding-left: 12px;
 
   .breviary-content {
     font-size: 14px;
-    letter-spacing: 2px;
-    line-height: 24px;
+    letter-spacing: 1px;
+    line-height: 20px;
     height: 120px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -98,20 +99,20 @@ $neu-padding-left: 12px;
   background-color: var(--oppositeColor);
 }
 
-@media screen and (max-width: 730px) {
-  .blog-breviary {
-    width: 100%;
-  }
-}
+// @media screen and (max-width: 730px) {
+//   .blog-breviary {
+//     width: 100%;
+//   }
+// }
 
-@media screen and (min-width: 730px) and (max-width: 2000px) {
-  .blog-breviary {
-    width: 47%;
-  }
-}
+// @media screen and (min-width: 730px) and (max-width: 2000px) {
+//   .blog-breviary {
+//     width: 47%;
+//   }
+// }
 
-@media screen and (min-width: 2000px) {
-  .blog-breviary {
-    width: 31%;
-  }
-}
+// @media screen and (min-width: 2000px) {
+//   .blog-breviary {
+//     width: 31%;
+//   }
+// }

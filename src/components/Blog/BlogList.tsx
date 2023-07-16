@@ -9,11 +9,12 @@ import Breviary from "./Breviary";
 import "./index.scss";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
+import { getMarkdownList } from "@/utils/markdown";
 
 export const BlogList = () => {
   const [loading, setLoading] = useState(false);
 
-  const [blogList, setBlogList] = useState<FBlog[]>([]);
+  const [blogList, setBlogList] = useState<string[]>([]);
 
   const [pageSize, setPageSize] = useState(20);
 
@@ -44,10 +45,14 @@ export const BlogList = () => {
 
   const onBLogUpdate = () => {
     setLoading(true);
-    getBlogList(pageNum, pageSize)
+
+    getMarkdownList()
       .then((res: any) => {
-        setBlogList(res.data || []);
-        setTotal(res.data.total || 0);
+        console.log("res", res);
+        const list = res.data || [];
+        console.log("list", list);
+        setBlogList(list);
+        setTotal(list.length || 0);
       })
       .catch((err) => {
         console.log("err", err);
@@ -68,8 +73,8 @@ export const BlogList = () => {
       <Loading visible={loading}>
         <div className="list-container">
           {blogList.length ? (
-            blogList.map((blog, index: number) => {
-              return <Breviary key={blog.id} blog={blog} />;
+            blogList.map((title, index: number) => {
+              return <Breviary key={title + index} title={title} />;
             })
           ) : (
             <div>暂无博客</div>

@@ -41,7 +41,11 @@
   max-width: 1200px;
   height: 100%;
   overflow: auto;
-  margin: auto;
+  margin: auto 10%;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .foot {
