@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - run: npm i
+      - run: pnpm i
       - run: npm run build
       - name: Deploy to aliyun server
         uses: easingthemes/ssh-deploy@v2.1.5
